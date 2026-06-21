@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+    border: none;
+    background: none;
+}
+
+img,
+svg,
+picture,
+video,
+figure {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
