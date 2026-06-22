@@ -1,0 +1,94 @@
+.header {
+    background-color: var(--Light-grayish-blue);
+
+    .container {
+        padding-block: var(--spacing-16);
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & > * {
+                flex-basis: 33%;
+                background-color: aquamarine;
+            }
+
+            @include breakpoint("lg") {
+                justify-content: space-between;
+                align-items: center;
+                padding-block: var(--spacing-16);
+
+                & > * {
+                    flex-basis: auto;
+                    background-color: aqua;
+                }
+            }
+
+            .hamburger-menu {
+                display: block;
+
+                img {
+                    width: 10%;
+                }
+
+                @include breakpoint("lg") {
+                    display: none;
+                }
+            }
+
+            .logo {
+                img {
+                    width: 80%;
+
+                    @include breakpoint("lg") {
+                        width: 90%;
+                    }
+                }
+            }
+
+            .menu {
+                display: none;
+
+                @include breakpoint("lg") {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: var(--spacing-32);
+                }
+
+                a {
+                    font: var(--font-body-m);
+                    color: var(--Very-dark-blue);
+
+                    @include breakpoint("lg") {
+                        font: var(--font-body-l);
+                    }
+                }
+            }
+
+            .icons {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: var(--spacing-16);
+
+                .cart {
+                    width: 15%;
+
+                    @include breakpoint("lg") {
+                        width: 25%;
+                    }
+                }
+
+                .avatar {
+                    width: 15%;
+
+                    @include breakpoint("lg") {
+                        width: 25%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+:root {
+    --font-family: "Kumbh Sans", sans-serif;
+
+    // Colors-Primary
+    --color-pri-orange: hsl(26, 100%, 55%);
+    --color-pti-pale-orange: hsl(25, 100%, 94%) --color-primary: #0f172a;
+
+    // Colors-Neutral
+    --Very-dark-blue: hsl(220, 13%, 13%);
+    --Dark-grayish-blue: hsl(219, 9%, 45%);
+    --Grayish-blue: hsl(220, 14%, 75%);
+    --Light-grayish-blue: hsl(223, 64%, 98%);
+    --color-White: hsl(0, 0%, 100%);
+
+    --spacing-0: 0;
+    --spacing-8: 8px;
+    --spacing-10: 10px;
+    --spacing-12: 12px;
+    --spacing-16: 16px;
+    --spacing-24: 24px;
+    --spacing-28: 28px;
+    --spacing-32: 32px;
+    --spacing-40: 40px;
+    --spacing-48: 48px;
+    --spacing-64: 64px;
+    --spacing-80: 80px;
+
+    --font-heading-1: 800 96px/110% var(--font-family);
+    --font-heading-2: 800 56px/110% var(--font-family);
+    --font-heading-4: 700 40px/110% var(--font-family);
+    --font-heading-5: 700 32px/110% var(--font-family);
+
+    --font-body-l: 400 18px/160% var(--font-family);
+    --font-body-m: 400 16px/140% var(--font-family);
+
+    --font-button-l: 500 20px/24px var(--font-family);
+    --font-button-m: 500 16px/24px var(--font-family);
+}
