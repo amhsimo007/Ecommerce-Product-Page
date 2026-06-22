@@ -15,6 +15,11 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    font-family: var(--font-family);
+    background-color: var(--Light-grayish-blue);
+}
+
 a {
     text-decoration: none;
 }
@@ -39,10 +44,6 @@ figure {
     display: block;
     max-width: 100%;
     height: auto;
-}
-
-body {
-    font-family: var(--font-family);
 }
 
 .container {

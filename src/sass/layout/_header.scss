@@ -1,6 +1,4 @@
 .header {
-    background-color: var(--Light-grayish-blue);
-
     .container {
         padding-block: var(--spacing-16);
 
@@ -8,20 +6,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding-block: var(--spacing-16);
 
             & > * {
                 flex-basis: 33%;
-                background-color: aquamarine;
             }
 
             @include breakpoint("lg") {
                 justify-content: space-between;
                 align-items: center;
-                padding-block: var(--spacing-16);
 
                 & > * {
                     flex-basis: auto;
-                    background-color: aqua;
                 }
             }
 
@@ -87,6 +83,20 @@
                     @include breakpoint("lg") {
                         width: 25%;
                     }
+                }
+            }
+        }
+
+        .show-product {
+            padding-block: var(--spacing-16);
+
+            h1 {
+                font: var(--font-heading-2);
+                color: var(--Very-dark-blue);
+                text-align: center;
+
+                @include breakpoint("lg") {
+                    font: var(--font-heading-1);
                 }
             }
         }
