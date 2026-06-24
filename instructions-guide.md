@@ -10,4 +10,8 @@ And to modify and access the page you must :
 npm run build
 ```
 
-Then the open index.html
+```
+npm run server
+```
+
+Then the open index.html whit live server or double click.
