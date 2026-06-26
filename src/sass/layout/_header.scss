@@ -1,6 +1,7 @@
 .header {
     .container {
         padding-block: var(--spacing-16);
+        position: relative;
 
         .navbar {
             display: flex;
@@ -23,6 +24,7 @@
 
             .hamburger-menu {
                 display: block;
+                cursor: pointer;
 
                 img {
                     width: 10%;
@@ -51,6 +53,10 @@
                     align-items: center;
                     justify-content: center;
                     gap: var(--spacing-32);
+                }
+
+                .icon-close {
+                    display: none;
                 }
 
                 a {
@@ -191,15 +197,23 @@
 
         .card-women {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 25px;
             border: 2px solid black;
             padding-block: 16px;
 
-            // & > * {
-            //     flex-basis: 50%;
-            // }
+            & > * {
+                flex-basis: 33%;
+            }
+
+            @include breakpoint("lg") {
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                flex-basis: auto;
+            }
 
             .gallery {
                 display: flex;
@@ -208,7 +222,10 @@
                 align-items: center;
                 gap: 5px;
                 border: 2px solid black;
-                width: 50%;
+
+                @include breakpoint("lg") {
+                    width: 50%;
+                }
 
                 .img-product-big {
                     border-radius: 15px;
@@ -234,7 +251,10 @@
                 justify-content: center;
                 align-items: flex-start;
                 gap: 15px;
-                width: 50%;
+
+                @include breakpoint("lg") {
+                    width: 50%;
+                }
 
                 span {
                     font: var(--font-body-s);
@@ -249,6 +269,64 @@
                 .paragraph {
                     font: var(--font-body-s);
                     color: var(--Dark-grayish-blue);
+                }
+
+                .price {
+                    font: var(--font-body-l);
+                    color: var(--Very-dark-blue);
+                    text-align: center;
+
+                    @include breakpoint("lg") {
+                        font: var(--font-body-g);
+                    }
+
+                    .percentage {
+                        font: var(--font-body-s);
+                        background-color: var(--Very-dark-blue);
+                        padding: 5px 7px;
+                        color: white;
+                        border-radius: 5px;
+                    }
+                }
+
+                .discount {
+                    font: var(--font-body-s);
+                    color: var(--Grayish-blue);
+                }
+
+                .counter-cart {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 15px;
+                    .counter {
+                        display: flex;
+                        gap: 5px;
+                        padding: 5px 45px;
+                        background-color: var(--Grayish-blue);
+                        border-radius: 5px;
+                    }
+
+                    .btn-action {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 15px;
+                        background: var(--color-pri-orange);
+                        width: 100%;
+                        padding: 5px 50px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        border-radius: 5px;
+
+                        .btn {
+                            font-size: var(--font-body-s);
+                        }
+
+                        .cart {
+                            filter: brightness(0);
+                        }
+                    }
                 }
             }
         }

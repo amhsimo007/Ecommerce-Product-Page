@@ -1,4 +1,7 @@
+// display All Products
+const showProductOne = document.querySelector("#show-product");
 const showData = document.querySelector("#show-data");
+const collection = document.querySelector("#collection");
 
 // Get Data from API
 async function getData() {
@@ -13,6 +16,7 @@ async function getData() {
 getData();
 
 // Print Data
+
 function printData(data) {
     data.map(function (ele) {
         showData.innerHTML +=
