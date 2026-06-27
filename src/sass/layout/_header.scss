@@ -1,4 +1,20 @@
-.header {
+.active {
+    display: block !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+.color-back {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.flex {
+    display: flex !important;
+}
+
+header {
     .container {
         padding-block: var(--spacing-16);
         position: relative;
@@ -23,10 +39,9 @@
             }
 
             .hamburger-menu {
-                display: block;
-                cursor: pointer;
-
-                img {
+                .icon-hamburger {
+                    display: none;
+                    cursor: pointer;
                     width: 10%;
                 }
 
@@ -50,6 +65,7 @@
 
                 @include breakpoint("lg") {
                     display: flex;
+                    flex-direction: row;
                     align-items: center;
                     justify-content: center;
                     gap: var(--spacing-32);
@@ -57,6 +73,9 @@
 
                 .icon-close {
                     display: none;
+                    cursor: pointer;
+                    width: 5%;
+                    margin-bottom: 45px;
                 }
 
                 a {
@@ -75,7 +94,7 @@
                 }
             }
 
-            .icons {
+            .icons-navbar {
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
@@ -91,7 +110,7 @@
             }
         }
 
-        .show-product {
+        .show-all-product {
             padding-block: var(--spacing-16);
             border: 2px solid black;
 
@@ -195,8 +214,8 @@
             }
         }
 
-        .card-women {
-            display: flex;
+        .card {
+            display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;

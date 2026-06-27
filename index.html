@@ -12,15 +12,15 @@
         <title>E-commerce Product Page</title>
     </head>
     <body>
-        <header class="header">
+        <header class="header" id="header">
             <section class="container">
                 <nav class="navbar">
                     <div class="hamburger-menu" id="hamburger-menu">
                         <img
-                            class="hamburger-icon"
-                            id="hamburger-icon"
+                            class="icon-hamburger active"
+                            id="icon-hamburger"
                             src="images/icon-menu.svg"
-                            alt="hamburger-icon" />
+                            alt="icon-hamburger" />
                     </div>
                     <span class="logo"
                         ><img src="images/logo.svg" alt="icon-logo"
@@ -30,7 +30,7 @@
                             class="icon-close"
                             id="icon-close"
                             src="images/icon-close.svg"
-                            alt="hamburger-icon" />
+                            alt="icon-close" />
                         <li id="collection" class="list-menu">
                             <a href="#" class="active">Collection</a>
                         </li>
@@ -45,7 +45,7 @@
                             <a href="#">Contact</a>
                         </li>
                     </ul>
-                    <div class="icons">
+                    <div class="icons-navbar">
                         <img
                             class="cart"
                             src="images/icon-cart.svg"
@@ -56,15 +56,16 @@
                             alt="icon-avatar-user" />
                     </div>
                 </nav>
-                <div class="show-product" id="show-product">
+                <div class="show-all-product" id="show-all-product">
                     <h1 class="title">Our Products</h1>
                     <div class="show-data" id="show-data"></div>
                 </div>
-                <div class="card-women" id="card-women"></div>
+                <div class="card" id="card-women"></div>
+                <div class="card" id="card-men"></div>
             </section>
         </header>
         <script src="src/javascript/script.js"></script>
         <script src="src/javascript/product-category.js"></script>
-        <script src="src/javascript/hamburger-menu.js"></script>
+        <script src="src/javascript/responsive-navbar.js"></script>
     </body>
 </html>
