@@ -1,9 +1,9 @@
-// print product women
+// Print Product Women
 const productWomen = document.querySelector("#women");
 const showAllProduct = document.querySelector("#show-all-product");
 const cardWoman = document.querySelector("#card-women");
 
-// Get Data from API
+// Get Data From API
 async function getDataWoman() {
     try {
         const response = await fetch("http://localhost:3000/products");
@@ -22,6 +22,7 @@ function printDataWoman(data) {
             cardWoman.classList.add("flex");
             cardMan.classList.remove("flex");
             showAllProduct.style.display = "none";
+            // showCollections.style.display = "none";
             cardWoman.innerHTML = `                
             <div class="gallery">
                 <img class="img-product-big" src="${ele.images[0]}" alt="picture-product">
@@ -32,7 +33,7 @@ function printDataWoman(data) {
                     <img class="img-product-small" src="${ele.images[3]}" alt="picture-product">
                 </div>
             </div>
-            <div class="description" id="show-data">
+            <div class="description" id="show-data-women">
                 <span>${ele.brand}</span>
                 <h2 class="subtitle">${ele.name}</h2>
                 <p class="paragraph">${ele.description}</p>
@@ -41,13 +42,13 @@ function printDataWoman(data) {
                 <div class="counter-cart">
                     <div class="counter">
                         <span>-</span>
-                        <span>3</span>
+                        <span>0</span>
                         <span>+</span>
                     </div>
-                    <div class="btn-action">
-                        <button id="add-to cart" class="add-to cart">add-to cart</button>
+                    <div class="btn-action back-primary d-flex">
+                        <button id="add-to cart" class="btn btn-xl secondary">Add-to cart</button>
                         <img
-                            class="cart"
+                            class="cart-black"
                             src="images/icon-cart.svg"
                             alt="icon-cart" />
                     </div>
@@ -58,11 +59,11 @@ function printDataWoman(data) {
     })
 }
 
-// print product men
+// Print Product Men
 const productMen = document.querySelector("#men");
 const cardMan = document.querySelector("#card-men");
 
-// Get Data from API
+// Get Data From API
 async function getDataMen() {
     try {
         const response = await fetch("http://localhost:3000/products");
@@ -81,6 +82,7 @@ function printDataMan(data) {
             cardMan.classList.add("flex");
             cardWoman.classList.remove("flex");
             showAllProduct.style.display = "none";
+            // showCollections.style.display = "none";
             cardMan.innerHTML = `                
             <div class="gallery">
                 <img class="img-product-big" src="${ele.images[0]}" alt="picture-product">
@@ -91,7 +93,7 @@ function printDataMan(data) {
                     <img class="img-product-small" src="${ele.images[3]}" alt="picture-product">
                 </div>
             </div>
-            <div class="description" id="show-data">
+            <div class="description" id="show-data-men">
                 <span>${ele.brand}</span>
                 <h2 class="subtitle">${ele.name}</h2>
                 <p class="paragraph">${ele.description}</p>
@@ -100,13 +102,13 @@ function printDataMan(data) {
                 <div class="counter-cart">
                     <div class="counter">
                         <span>-</span>
-                        <span>3</span>
+                        <span>0</span>
                         <span>+</span>
                     </div>
-                    <div class="btn-action">
-                        <button id="add-to cart" class="add-to cart">add-to cart</button>
+                    <div class="btn-action back-primary d-flex">
+                        <button id="add-to cart" class="btn btn-xl secondary">Add-to cart</button>
                         <img
-                            class="cart"
+                            class="cart-black"
                             src="images/icon-cart.svg"
                             alt="icon-cart" />
                     </div>
@@ -116,3 +118,4 @@ function printDataMan(data) {
         })
     })
 }
+

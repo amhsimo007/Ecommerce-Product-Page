@@ -1,23 +1,11 @@
-.active {
-    display: block !important;
-}
-
-.hide {
-    display: none !important;
-}
-
-.color-back {
-    background-color: rgba(0, 0, 0, 0.5) !important;
-}
-
-.flex {
-    display: flex !important;
-}
-
 header {
     .container {
-        padding-block: var(--spacing-16);
+        padding-block: var(--spacing-8);
         position: relative;
+
+        @include breakpoint("lg") {
+            padding-block: var(--spacing-16);
+        }
 
         .navbar {
             display: flex;
@@ -60,36 +48,44 @@ header {
                 }
             }
 
-            .menu {
-                display: none;
+            .parent {
+                width: 100%;
+                height: 100%;
 
-                @include breakpoint("lg") {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: center;
-                    gap: var(--spacing-32);
-                }
-
-                .icon-close {
+                .menu {
                     display: none;
-                    cursor: pointer;
-                    width: 5%;
-                    margin-bottom: 45px;
-                }
-
-                a {
-                    font: var(--font-body-m);
-                    color: var(--Very-dark-blue);
-
-                    &:hover {
-                        color: var(--Dark-grayish-blue);
-                        padding-bottom: 15px;
-                        border-bottom: 2px solid var(--color-pri-orange);
-                    }
 
                     @include breakpoint("lg") {
-                        font: var(--font-body-l);
+                        display: flex;
+                        flex-direction: row !important;
+                        align-items: center;
+                        justify-content: center;
+                        gap: var(--spacing-32);
+                        position: unset !important;
+                        border: none !important;
+                        padding: 0 !important;
+                    }
+
+                    .icon-close {
+                        display: none;
+                        cursor: pointer;
+                        width: 5%;
+                        margin-top: 25px;
+                    }
+
+                    a {
+                        font: var(--font-body-m);
+                        color: var(--Very-dark-blue);
+
+                        @include breakpoint("lg") {
+                            font: var(--font-body-l);
+                        }
+
+                        &:hover {
+                            color: var(--Dark-grayish-blue);
+                            margin-bottom: 15px;
+                            border-bottom: 2px solid var(--color-pri-orange);
+                        }
                     }
                 }
             }
@@ -102,17 +98,19 @@ header {
 
                 .cart {
                     filter: brightness(0);
+                    width: 25%;
+                    cursor: pointer;
                 }
 
                 .avatar {
-                    width: 15%;
+                    width: 25%;
+                    cursor: pointer;
                 }
             }
         }
 
         .show-all-product {
             padding-block: var(--spacing-16);
-            border: 2px solid black;
 
             h1 {
                 font: var(--font-heading-2);
@@ -123,95 +121,9 @@ header {
                     font: var(--font-heading-1);
                 }
             }
-
-            .show-data {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 25px;
-                padding: 15px;
-
-                @include breakpoint("lg") {
-                    flex-direction: row;
-                }
-
-                .content {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: flex-start;
-                    gap: 15px;
-                    border: 2px solid var(--Dark-grayish-blue);
-                    border-radius: 5px;
-                    padding: 15px;
-
-                    .img-product {
-                        border: 1px solid var(--Grayish-blue);
-                    }
-
-                    .parent {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: flex-start;
-                        gap: 5px;
-
-                        h3 {
-                            font: var(--font-body-l);
-                            color: var(--Very-dark-blue);
-                            text-align: center;
-
-                            @include breakpoint("lg") {
-                                font: var(--font-body-g);
-                            }
-                        }
-
-                        .price {
-                            font: var(--font-body-l);
-                            color: var(--Very-dark-blue);
-                            text-align: center;
-
-                            @include breakpoint("lg") {
-                                font: var(--font-body-g);
-                            }
-
-                            .percentage {
-                                font: var(--font-body-s);
-                                background-color: var(--Very-dark-blue);
-                                padding: 5px 7px;
-                                color: white;
-                                border-radius: 5px;
-                            }
-
-                            .discount {
-                                font: var(--font-body-s);
-                                color: var(--Grayish-blue);
-                            }
-                        }
-                    }
-
-                    .btn-action {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 15px;
-                        background: var(--color-pri-orange);
-                        width: 100%;
-                        padding: 5px 70px;
-                        border-radius: 5px;
-                        cursor: pointer;
-
-                        .btn {
-                            font-size: var(--font-body-s);
-                            color: white;
-                        }
-
-                        .cart {
-                            filter: brightness(0) invert(1);
-                        }
-                    }
-                }
-            }
+        }
+        .show-collections {
+            @extend .show-data;
         }
 
         .card {
@@ -219,19 +131,13 @@ header {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 25px;
-            border: 2px solid black;
-            padding-block: 16px;
-
-            & > * {
-                flex-basis: 33%;
-            }
+            gap: 65px;
+            padding: 16px 32px;
 
             @include breakpoint("lg") {
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
-                flex-basis: auto;
             }
 
             .gallery {
@@ -240,7 +146,6 @@ header {
                 justify-content: center;
                 align-items: center;
                 gap: 5px;
-                border: 2px solid black;
 
                 @include breakpoint("lg") {
                     width: 50%;
@@ -248,7 +153,6 @@ header {
 
                 .img-product-big {
                     border-radius: 15px;
-                    border: 2px solid black;
                 }
 
                 .gallery-small {
@@ -259,7 +163,13 @@ header {
                     border-radius: 15px;
 
                     .img-product-small {
-                        width: 15%;
+                        width: 20%;
+                        border-radius: 5px;
+
+                        &:hover {
+                            border: 2px solid var(--color-pri-orange);
+                            opacity: 0.5;
+                        }
                     }
                 }
             }
@@ -303,7 +213,7 @@ header {
                         font: var(--font-body-s);
                         background-color: var(--Very-dark-blue);
                         padding: 5px 7px;
-                        color: white;
+                        color: var(--color-White);
                         border-radius: 5px;
                     }
                 }
@@ -315,35 +225,39 @@ header {
 
                 .counter-cart {
                     display: flex;
+                    flex-direction: column;
                     justify-content: center;
                     align-items: center;
                     gap: 15px;
-                    .counter {
-                        display: flex;
-                        gap: 5px;
-                        padding: 5px 45px;
-                        background-color: var(--Grayish-blue);
-                        border-radius: 5px;
+                    width: 100%;
+
+                    @include breakpoint("lg") {
+                        flex-direction: row;
                     }
 
-                    .btn-action {
+                    .counter {
                         display: flex;
+                        justify-content: space-between;
                         align-items: center;
-                        justify-content: center;
-                        gap: 15px;
-                        background: var(--color-pri-orange);
+                        gap: 5px;
+                        padding: 5px;
+                        background-color: var(--Grayish-blue);
+                        border-radius: 5px;
                         width: 100%;
-                        padding: 5px 50px;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        border-radius: 5px;
+                        font: var(--font-button-m);
 
-                        .btn {
-                            font-size: var(--font-body-s);
+                        @include breakpoint("lg") {
+                            width: 50%;
+                            font: var(--font-button-l);
                         }
 
-                        .cart {
-                            filter: brightness(0);
+                        :first-child,
+                        :last-child {
+                            color: var(--color-pri-orange);
+                        }
+
+                        :nth-child(2) {
+                            color: var(--Very-dark-blue);
                         }
                     }
                 }

@@ -13,7 +13,7 @@
     </head>
     <body>
         <header class="header" id="header">
-            <section class="container">
+            <section class="container" id="container">
                 <nav class="navbar">
                     <div class="hamburger-menu" id="hamburger-menu">
                         <img
@@ -25,26 +25,30 @@
                     <span class="logo"
                         ><img src="images/logo.svg" alt="icon-logo"
                     /></span>
-                    <ul class="menu" id="menu">
-                        <img
-                            class="icon-close"
-                            id="icon-close"
-                            src="images/icon-close.svg"
-                            alt="icon-close" />
-                        <li id="collection" class="list-menu">
-                            <a href="#" class="active">Collection</a>
-                        </li>
-                        <li id="men" class="list-menu"><a href="#">Men</a></li>
-                        <li id="women" class="list-menu">
-                            <a href="#">Women</a>
-                        </li>
-                        <li id="about" class="list-menu">
-                            <a href="#">About</a>
-                        </li>
-                        <li id="contact" class="list-menu">
-                            <a href="#">Contact</a>
-                        </li>
-                    </ul>
+                    <div class="parent" id="parent">
+                        <ul class="menu" id="menu">
+                            <img
+                                class="icon-close"
+                                id="icon-close"
+                                src="images/icon-close.svg"
+                                alt="icon-close" />
+                            <li id="collection" class="list-menu">
+                                <a href="#">Collection</a>
+                            </li>
+                            <li id="men" class="list-menu">
+                                <a href="#">Men</a>
+                            </li>
+                            <li id="women" class="list-menu">
+                                <a href="#">Women</a>
+                            </li>
+                            <li id="about" class="list-menu">
+                                <a href="#">About</a>
+                            </li>
+                            <li id="contact" class="list-menu">
+                                <a href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="icons-navbar">
                         <img
                             class="cart"
@@ -60,6 +64,7 @@
                     <h1 class="title">Our Products</h1>
                     <div class="show-data" id="show-data"></div>
                 </div>
+                <div class="show-collections" id="show-collections"></div>
                 <div class="card" id="card-women"></div>
                 <div class="card" id="card-men"></div>
             </section>
@@ -67,5 +72,6 @@
         <script src="src/javascript/script.js"></script>
         <script src="src/javascript/product-category.js"></script>
         <script src="src/javascript/responsive-navbar.js"></script>
+        <script src="src/javascript/image-slider.js"></script>
     </body>
 </html>
