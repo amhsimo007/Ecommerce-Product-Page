@@ -21,11 +21,15 @@ function printDataWoman(data) {
         productWomen.addEventListener("click", () => {
             cardWoman.classList.add("flex");
             cardMan.classList.remove("flex");
-            showAllProduct.style.display = "none";
+            showData.style.display = "none";
             // showCollections.style.display = "none";
             cardWoman.innerHTML = `                
             <div class="gallery">
-                <img class="img-product-big" src="${ele.images[0]}" alt="picture-product">
+                <div class="slideshow" id="slideshow">
+                    <button><img class="icon-previous" id="icon-previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
+                    <img class="img-product-big ${ele.name}" src="${ele.images[0]}" alt="picture-product">
+                    <button><img class="icon-next" id="icon-next" src="images/icon-next.svg" alt="icon-next"></button>
+                </div>
                 <div class="gallery-small">
                     <img class="img-product-small" src="${ele.images[0]}" alt="picture-product">
                     <img class="img-product-small" src="${ele.images[1]}" alt="picture-product">
@@ -81,11 +85,15 @@ function printDataMan(data) {
         productMen.addEventListener("click", () => {
             cardMan.classList.add("flex");
             cardWoman.classList.remove("flex");
-            showAllProduct.style.display = "none";
+            showData.style.display = "none";
             // showCollections.style.display = "none";
             cardMan.innerHTML = `                
             <div class="gallery">
-                <img class="img-product-big" src="${ele.images[0]}" alt="picture-product">
+                <div class="slideshow" id="slideshow">
+                    <button><img class="icon-previous" id="icon-previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
+                    <img class="img-product-big ${ele.name}" src="${ele.images[0]}" alt="picture-product">
+                    <button><img class="icon-next" id="icon-next" src="images/icon-next.svg" alt="icon-next"></button>
+                </div>
                 <div class="gallery-small">
                     <img class="img-product-small" src="${ele.images[0]}" alt="picture-product">
                     <img class="img-product-small" src="${ele.images[1]}" alt="picture-product">

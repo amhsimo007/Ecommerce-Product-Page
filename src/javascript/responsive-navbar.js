@@ -14,7 +14,7 @@ hamburgerIcon.addEventListener("click", function () {
     menu.style.top = "0";
     menu.style.left = "0";
     menu.style.backgroundColor = "var(--color-White)";
-    menu.style.width = "70%";
+    menu.style.width = "50%";
     menu.style.height = "100%";
     menu.style.padding = "5px 25px";
     menu.style.borderRight = "2px solid var(--color-pri-orange)";
@@ -35,7 +35,3 @@ iconClose.addEventListener("click", () => {
     hamburgerIcon.classList.toggle("active");
     container.classList.remove("color-back");
 })
-
-// if (mediaQuery.matches) {
-
-// }
