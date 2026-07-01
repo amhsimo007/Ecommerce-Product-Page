@@ -62,15 +62,15 @@ function printData(data) {
                     currentImage.innerHTML = `                
             <div class="gallery">
                 <div class="slideshow" id="slideshow">
-                    <button><img class="icon-previous" id="icon-previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
+                    <button><img class="previous" id="icon-previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
                     <img class="img-product-big ${ele.name}" src="${ele.images[0]}" alt="picture-product">
-                    <button><img class="icon-next" id="icon-next" src="images/icon-next.svg" alt="icon-next"></button>
+                    <button><img class="next" id="icon-next" src="images/icon-next.svg" alt="icon-next"></button>
                 </div>
                 <div class="gallery-small">
-                    <img class="img-product-small" src="${ele.images[0]}" alt="picture-product">
-                    <img class="img-product-small" src="${ele.images[1]}" alt="picture-product">
-                    <img class="img-product-small" src="${ele.images[2]}" alt="picture-product">
-                    <img class="img-product-small" src="${ele.images[3]}" alt="picture-product">
+                    <img class="img-product-small" src="${ele.images[0]}" alt="picture-product-small">
+                    <img class="img-product-small" src="${ele.images[1]}" alt="picture-product-small">
+                    <img class="img-product-small" src="${ele.images[2]}" alt="picture-product-small">
+                    <img class="img-product-small" src="${ele.images[3]}" alt="picture-product-small">
                 </div>
             </div>
             <div class="description" id="show-data-women">
@@ -122,15 +122,15 @@ function printData(data) {
                     currentImage.innerHTML = `                
             <div class="gallery">
                 <div class="slideshow" id="slideshow">
-                    <button><img class="icon-previous" id="icon-previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
+                    <button><img class="previous" id="icon-previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
                     <img class="img-product-big ${ele.name}" src="${ele.images[0]}" alt="picture-product">
-                    <button><img class="icon-next" id="icon-next" src="images/icon-next.svg" alt="icon-next"></button>
+                    <button><img class="next" id="icon-next" src="images/icon-next.svg" alt="icon-next"></button>
                 </div>
                 <div class="gallery-small">
-                    <img class="img-product-small" src="${ele.images[0]}" alt="picture-product">
-                    <img class="img-product-small" src="${ele.images[1]}" alt="picture-product">
-                    <img class="img-product-small" src="${ele.images[2]}" alt="picture-product">
-                    <img class="img-product-small" src="${ele.images[3]}" alt="picture-product">
+                    <img class="img-product-small" src="${ele.images[0]}" alt="picture-product-small">
+                    <img class="img-product-small" src="${ele.images[1]}" alt="picture-product-small">
+                    <img class="img-product-small" src="${ele.images[2]}" alt="picture-product-small">
+                    <img class="img-product-small" src="${ele.images[3]}" alt="picture-product-small">
                 </div>
             </div>
             <div class="description" id="show-data-women">
