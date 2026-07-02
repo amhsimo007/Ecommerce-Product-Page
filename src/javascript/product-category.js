@@ -26,9 +26,9 @@ function printDataWoman(data) {
             cardWoman.innerHTML = `                
             <div class="gallery">
                 <div class="slideshow" id="slideshow">
-                    <button><img class="previous" id="icon-previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
-                    <img class="img-product-big ${ele.name}" src="${ele.images[0]}" alt="picture-product">
-                    <button><img class="next" id="icon-next" src="images/icon-next.svg" alt="icon-next"></button>
+                    <button id="previous"><img class="previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
+                    <img class="img-product-big ${ele.name}" id="${ele.id}" src="${ele.images[0]}" alt="picture-product">
+                    <button id="next"><img class="next" src="images/icon-next.svg" alt="icon-next"></button>
                 </div>
                 <div class="gallery-small">
                     <img class="img-product-small" src="${ele.images[0]}" alt="picture-product-small">
@@ -59,19 +59,49 @@ function printDataWoman(data) {
                 </div>
             </div>
         `
-            // document.addEventListener('DOMContentLoaded', function () {
+            // slider image
+            const images = [`${ele.images[0]}`, `${ele.images[1]}`, `${ele.images[2]}`, `${ele.images[3]}`];
+            console.log(images);
+            let currentIndex = 0;
+            console.log(currentIndex);
+            const previous = document.getElementById("previous");
+            console.log(previous);
+            const next = document.getElementById("next");
+            console.log(next);
+            const mainImage = document.querySelector(".img-product-big");
+            console.log(mainImage);
 
+            function showImage() {
 
-            //     let currentIndex = 0;
-            //     const nextBtn =
-            //         document.getElementById(".next");
+                mainImage.src = images[currentIndex];
+                console.log(mainImage.src);
 
-            //     const prevBtn =
-            //         document.getElementById(".previous");
+            }
+            showImage();
 
-            //     console.log(prevBtn);
-            //     console.log(nextBtn);
-            // });
+            next.addEventListener("click", () => {
+                currentIndex++;
+                mainImage.src = images[currentIndex];
+
+                if (currentIndex >= images.length) {
+                    currentIndex = 0;
+                }
+
+                showImage();
+            })
+
+            previous.addEventListener("click", () => {
+                currentIndex--;
+                mainImage.src = images[currentIndex];
+
+                if (currentIndex < 0) {
+                    currentIndex =
+                        images.length - 1;
+                }
+
+                showImage();
+            })
+
         })
     })
 }
@@ -103,9 +133,9 @@ function printDataMan(data) {
             cardMan.innerHTML = `                
             <div class="gallery">
                 <div class="slideshow" id="slideshow">
-                    <button><img class="previous" id="icon-previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
+                    <button id="previous"><img class="previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
                     <img class="img-product-big ${ele.name}" src="${ele.images[0]}" alt="picture-product">
-                    <button><img class="next" id="icon-next" src="images/icon-next.svg" alt="icon-next"></button>
+                    <button id="next"><img class="next" src="images/icon-next.svg" alt="icon-next"></button>
                 </div>
                 <div class="gallery-small">
                     <img class="img-product-small" src="${ele.images[0]}" alt="picture-product-small">
@@ -136,6 +166,48 @@ function printDataMan(data) {
                 </div>
             </div>
         `
+            // slider image
+            const images = [`${ele.images[0]}`, `${ele.images[1]}`, `${ele.images[2]}`, `${ele.images[3]}`];
+            console.log(images);
+            let currentIndex = 0;
+            console.log(currentIndex);
+            const previous = document.getElementById("previous");
+            console.log(previous);
+            const next = document.getElementById("next");
+            console.log(next);
+            const mainImage = document.querySelector(".img-product-big");
+            console.log(mainImage);
+
+            function showImage() {
+
+                mainImage.src = images[currentIndex];
+                console.log(mainImage.src);
+
+            }
+            showImage();
+
+            next.addEventListener("click", () => {
+                currentIndex++;
+                mainImage.src = images[currentIndex];
+
+                if (currentIndex >= images.length) {
+                    currentIndex = 0;
+                }
+
+                showImage();
+            })
+
+            previous.addEventListener("click", () => {
+                currentIndex--;
+                mainImage.src = images[currentIndex];
+
+                if (currentIndex < 0) {
+                    currentIndex =
+                        images.length - 1;
+                }
+
+                showImage();
+            })
         })
     })
 }

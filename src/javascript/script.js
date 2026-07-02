@@ -35,18 +35,15 @@ function printData(data) {
             
         </div>
         `
-
+        // Products for women will be displayed when you click on their image
         let imgProduct = document.querySelector("#product-f407b6c6-d0cd-4cc3-8082-9a25ddc91c09");
         let currentImage = document.querySelector("#image-slider");
-
-        console.log(imgProduct);
 
         async function getDataSlideshowOne() {
             try {
                 const response = await fetch("http://localhost:3000/products");
                 let data = await response.json();
                 data = data.filter(product => product.id === "product-f407b6c6-d0cd-4cc3-8082-9a25ddc91c09");
-                // data = data.filter(product => product.id === "product-i407b6c6-4kdl-2eec-7890-23f4b5c6d7e8");
                 printDataImageA(data);
             } catch (error) {
                 console.log(error);
@@ -62,9 +59,9 @@ function printData(data) {
                     currentImage.innerHTML = `                
             <div class="gallery">
                 <div class="slideshow" id="slideshow">
-                    <button><img class="previous" id="icon-previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
+                    <button id="previous"><img class="previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
                     <img class="img-product-big ${ele.name}" src="${ele.images[0]}" alt="picture-product">
-                    <button><img class="next" id="icon-next" src="images/icon-next.svg" alt="icon-next"></button>
+                    <button id="next"><img class="next" src="images/icon-next.svg" alt="icon-next"></button>
                 </div>
                 <div class="gallery-small">
                     <img class="img-product-small" src="${ele.images[0]}" alt="picture-product-small">
@@ -95,17 +92,59 @@ function printData(data) {
                 </div>
             </div>
         `
+                    // slider image
+                    const images = [`${ele.images[0]}`, `${ele.images[1]}`, `${ele.images[2]}`, `${ele.images[3]}`];
+                    console.log(images);
+                    let currentIndex = 0;
+                    console.log(currentIndex);
+                    const previous = document.getElementById("previous");
+                    console.log(previous);
+                    const next = document.getElementById("next");
+                    console.log(next);
+                    const mainImage = document.querySelector(".img-product-big");
+                    console.log(mainImage);
+
+                    function showImage() {
+
+                        mainImage.src = images[currentIndex];
+                        console.log(mainImage.src);
+
+                    }
+                    showImage();
+
+                    next.addEventListener("click", () => {
+                        currentIndex++;
+                        mainImage.src = images[currentIndex];
+
+                        if (currentIndex >= images.length) {
+                            currentIndex = 0;
+                        }
+
+                        showImage();
+                    })
+
+                    previous.addEventListener("click", () => {
+                        currentIndex--;
+                        mainImage.src = images[currentIndex];
+
+                        if (currentIndex < 0) {
+                            currentIndex =
+                                images.length - 1;
+                        }
+
+                        showImage();
+                    })
                 })
             })
         }
 
+        // Products for men will be displayed when you click on their image
         let imgProductOne = document.querySelector("#product-i407b6c6-4kdl-2eec-7890-23f4b5c6d7e8");
 
         async function getDataSlideshowTwo() {
             try {
                 const response = await fetch("http://localhost:3000/products");
                 let data = await response.json();
-                // data = data.filter(product => product.id === "product-f407b6c6-d0cd-4cc3-8082-9a25ddc91c09");
                 data = data.filter(product => product.id === "product-i407b6c6-4kdl-2eec-7890-23f4b5c6d7e8");
                 printDataImageB(data);
             } catch (error) {
@@ -122,9 +161,9 @@ function printData(data) {
                     currentImage.innerHTML = `                
             <div class="gallery">
                 <div class="slideshow" id="slideshow">
-                    <button><img class="previous" id="icon-previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
+                    <button id="previous"><img class="previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
                     <img class="img-product-big ${ele.name}" src="${ele.images[0]}" alt="picture-product">
-                    <button><img class="next" id="icon-next" src="images/icon-next.svg" alt="icon-next"></button>
+                    <button id="next"><img class="next" src="images/icon-next.svg" alt="icon-next"></button>
                 </div>
                 <div class="gallery-small">
                     <img class="img-product-small" src="${ele.images[0]}" alt="picture-product-small">
@@ -155,6 +194,48 @@ function printData(data) {
                 </div>
             </div>
         `
+                    // slider image
+                    const images = [`${ele.images[0]}`, `${ele.images[1]}`, `${ele.images[2]}`, `${ele.images[3]}`];
+                    console.log(images);
+                    let currentIndex = 0;
+                    console.log(currentIndex);
+                    const previous = document.getElementById("previous");
+                    console.log(previous);
+                    const next = document.getElementById("next");
+                    console.log(next);
+                    const mainImage = document.querySelector(".img-product-big");
+                    console.log(mainImage);
+
+                    function showImage() {
+
+                        mainImage.src = images[currentIndex];
+                        console.log(mainImage.src);
+
+                    }
+                    showImage();
+
+                    next.addEventListener("click", () => {
+                        currentIndex++;
+                        mainImage.src = images[currentIndex];
+
+                        if (currentIndex >= images.length) {
+                            currentIndex = 0;
+                        }
+
+                        showImage();
+                    })
+
+                    previous.addEventListener("click", () => {
+                        currentIndex--;
+                        mainImage.src = images[currentIndex];
+
+                        if (currentIndex < 0) {
+                            currentIndex =
+                                images.length - 1;
+                        }
+
+                        showImage();
+                    })
                 })
             })
         }
