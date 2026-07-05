@@ -13,8 +13,6 @@ async function getData() {
 }
 getData();
 
-// Print Data
-
 function printData(data) {
     data.map(function (ele) {
         showData.innerHTML +=
@@ -26,7 +24,7 @@ function printData(data) {
             <span class="price">$${ele.price}.00 <span class="percentage">${ele.reduction}%</span> <s class="discount">$${ele.compare_at_price}</s></span>
             </div>
             <div class="btn-action back-primary">
-                <button id="bay-now" class="btn btn-xl primary"><span>Bay Now</span></button>
+                <button class="btn btn-xl primary add-to-cart" data-id="${ele.id}"><span>Bay Now</span></button>
                 <img
                     class="cart-white"
                     src="images/icon-cart.svg"
@@ -59,15 +57,13 @@ function printData(data) {
                     currentImage.innerHTML = `                
             <div class="gallery">
                 <div class="slideshow" id="slideshow">
-                    <button id="previous"><img class="previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
                     <img class="img-product-big ${ele.name}" src="${ele.images[0]}" alt="picture-product">
-                    <button id="next"><img class="next" src="images/icon-next.svg" alt="icon-next"></button>
                 </div>
-                <div class="gallery-small">
-                    <img class="img-product-small" src="${ele.images[0]}" alt="picture-product-small">
-                    <img class="img-product-small" src="${ele.images[1]}" alt="picture-product-small">
-                    <img class="img-product-small" src="${ele.images[2]}" alt="picture-product-small">
-                    <img class="img-product-small" src="${ele.images[3]}" alt="picture-product-small">
+                <div class="thumbnails">
+                    <img class="thumb" src="${ele.images[0]}" alt="picture-product-small">
+                    <img class="thumb" src="${ele.images[1]}" alt="picture-product-small">
+                    <img class="thumb" src="${ele.images[2]}" alt="picture-product-small">
+                    <img class="thumb" src="${ele.images[3]}" alt="picture-product-small">
                 </div>
             </div>
             <div class="description" id="show-data-women">
@@ -83,7 +79,7 @@ function printData(data) {
                     <span><img class="icon-plus" id="icon-plus" src="images/icon-plus.svg" alt="icon-plus"></span>
                     </div>
                     <div class="btn-action back-primary d-flex">
-                        <button id="add-to cart" class="btn btn-xl secondary">Add-to cart</button>
+                        <button class="btn btn-xl secondary add-to-cart" data-id="${ele.id}">Add-to cart</button>
                         <img
                             class="cart-black"
                             src="images/icon-cart.svg"
@@ -92,47 +88,88 @@ function printData(data) {
                 </div>
             </div>
         `
-                    // slider image
-                    const images = [`${ele.images[0]}`, `${ele.images[1]}`, `${ele.images[2]}`, `${ele.images[3]}`];
-                    console.log(images);
-                    let currentIndex = 0;
-                    console.log(currentIndex);
-                    const previous = document.getElementById("previous");
-                    console.log(previous);
-                    const next = document.getElementById("next");
-                    console.log(next);
-                    const mainImage = document.querySelector(".img-product-big");
-                    console.log(mainImage);
+                    // click on Thumbnails change image big change
+                    const imagesProducts = [`${ele.images[0]}`, `${ele.images[1]}`, `${ele.images[2]}`, `${ele.images[3]}`];
+                    const mainImageProduct = document.querySelector(".img-product-big");
+                    const thumbnailsProduct = document.querySelectorAll(".thumb");
+                    const popUpGalleryProduct = document.querySelector("#card-product-pop-up");
 
-                    function showImage() {
+                    thumbnailsProduct.forEach((image) => {
+                        image.addEventListener("click", function () {
+                            mainImageProduct.src = this.src;
+                            thumbnailsProduct.forEach((img) => {
+                                img.classList.remove("active");
+                            });
+                            this.classList.add("active");
+                        });
+                    });
 
-                        mainImage.src = images[currentIndex];
-                        console.log(mainImage.src);
+                    // click in big image pop-up slider image It appears on the horizon
+                    mainImageProduct.addEventListener("click", function () {
+                        popUpGalleryProduct.style.display = "block";
+                        popUpGalleryProduct.classList.add("style-pop-up");
+                        navbar.style.backgroundColor = 'rgba(0, 0, 0, 0%)';
+                        popUpGalleryProduct.innerHTML = `
+                <div class="gallery-po-up">
+                    <div class="slideshow" id="slideshow">
+                        <button id="close"><img class="close" src="images/icon-close.svg" alt="icon-close"></button> 
+                        <button id="previous"><img class="previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
+                        <img class="img-big ${ele.name}" id="img-big-p" src="${ele.images[0]}" alt="picture-product">
+                        <button id="next"><img class="next" src="images/icon-next.svg" alt="icon-next"></button>
+                    </div>
+                    <div class="thumbnails-big" id="thumbnails">
+                        <img class="thumb-big thumb-big-p" src="${ele.images[0]}" alt="picture-product-small">
+                        <img class="thumb-big thumb-big-p" src="${ele.images[1]}" alt="picture-product-small">
+                        <img class="thumb-big thumb-big-p" src="${ele.images[2]}" alt="picture-product-small">
+                        <img class="thumb-big thumb-big-p" src="${ele.images[3]}" alt="picture-product-small">
+                    </div>
+                </div>
+                `
+                        const previous = document.getElementById("previous");
+                        const next = document.getElementById("next");
+                        const close = document.querySelector("#close");
+                        const mainImageBig = document.querySelector("#img-big-p");
+                        thumbnailsBigOne = document.querySelectorAll(".thumb-big-p");
 
-                    }
-                    showImage();
+                        thumbnailsBigOne.forEach((image) => {
+                            image.addEventListener("click", function () {
+                                mainImageBig.src = this.src;
+                                thumbnailsBigOne.forEach((img) => {
+                                    img.classList.remove("active");
+                                });
+                                this.classList.add("active");
+                            });
+                        });
 
-                    next.addEventListener("click", () => {
-                        currentIndex++;
-                        mainImage.src = images[currentIndex];
+                        let currentIndexProduct = 0;
 
-                        if (currentIndex >= images.length) {
-                            currentIndex = 0;
+                        function showImage() {
+                            mainImageBig.src = imagesProducts[currentIndexProduct];
                         }
-
                         showImage();
-                    })
 
-                    previous.addEventListener("click", () => {
-                        currentIndex--;
-                        mainImage.src = images[currentIndex];
+                        next.addEventListener("click", () => {
+                            currentIndexProduct++;
+                            mainImageBig.src = imagesProducts[currentIndexProduct];
+                            if (currentIndexProduct >= imagesProducts.length) {
+                                currentIndexProduct = 0;
+                            }
+                            showImage();
+                        })
 
-                        if (currentIndex < 0) {
-                            currentIndex =
-                                images.length - 1;
-                        }
+                        previous.addEventListener("click", () => {
+                            currentIndexProduct--;
+                            mainImageBig.src = imagesProducts[currentIndexProduct];
+                            if (currentIndexProduct < 0) {
+                                currentIndexProduct =
+                                    imagesProducts.length - 1;
+                            }
+                            showImage();
+                        })
 
-                        showImage();
+                        close.addEventListener("click", function () {
+                            popUpGalleryProduct.style.display = "none";
+                        })
                     })
                 })
             })
@@ -165,11 +202,11 @@ function printData(data) {
                     <img class="img-product-big ${ele.name}" src="${ele.images[0]}" alt="picture-product">
                     <button id="next"><img class="next" src="images/icon-next.svg" alt="icon-next"></button>
                 </div>
-                <div class="gallery-small">
-                    <img class="img-product-small" src="${ele.images[0]}" alt="picture-product-small">
-                    <img class="img-product-small" src="${ele.images[1]}" alt="picture-product-small">
-                    <img class="img-product-small" src="${ele.images[2]}" alt="picture-product-small">
-                    <img class="img-product-small" src="${ele.images[3]}" alt="picture-product-small">
+                <div class="thumbnails">
+                    <img class="thumb" src="${ele.images[0]}" alt="picture-product-small">
+                    <img class="thumb" src="${ele.images[1]}" alt="picture-product-small">
+                    <img class="thumb" src="${ele.images[2]}" alt="picture-product-small">
+                    <img class="thumb" src="${ele.images[3]}" alt="picture-product-small">
                 </div>
             </div>
             <div class="description" id="show-data-women">
@@ -185,7 +222,7 @@ function printData(data) {
                         <span>+</span>
                     </div>
                     <div class="btn-action back-primary d-flex">
-                        <button id="add-to cart" class="btn btn-xl secondary">Add-to cart</button>
+                        <button class="btn btn-xl secondary add-to-cart" data-id="${ele.id}">Add-to cart</button>
                         <img
                             class="cart-black"
                             src="images/icon-cart.svg"
@@ -196,21 +233,13 @@ function printData(data) {
         `
                     // slider image
                     const images = [`${ele.images[0]}`, `${ele.images[1]}`, `${ele.images[2]}`, `${ele.images[3]}`];
-                    console.log(images);
                     let currentIndex = 0;
-                    console.log(currentIndex);
                     const previous = document.getElementById("previous");
-                    console.log(previous);
                     const next = document.getElementById("next");
-                    console.log(next);
                     const mainImage = document.querySelector(".img-product-big");
-                    console.log(mainImage);
 
                     function showImage() {
-
                         mainImage.src = images[currentIndex];
-                        console.log(mainImage.src);
-
                     }
                     showImage();
 
@@ -274,7 +303,7 @@ function printDataCollection(data) {
             <span class="price">$${ele.price}.00 <span class="percentage">${ele.reduction}%</span> <s class="discount">$${ele.compare_at_price}</s></span>
             </div>
             <div class="btn-action back-primary">
-                <button id="bay-now" class="btn btn-xl primary"><span>Bay Now</span></button>
+                <button class="btn btn-xl primary add-to-cart" data-id="${ele.id}"><span>Bay Now</span></button>
                 <img
                     class="cart-white"
                     src="images/icon-cart.svg"
@@ -286,9 +315,3 @@ function printDataCollection(data) {
         })
     })
 }
-
-const logo = document.querySelector("#logo");
-
-logo.addEventListener("click", () => {
-    getData();
-})

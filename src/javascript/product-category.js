@@ -26,15 +26,13 @@ function printDataWoman(data) {
             cardWoman.innerHTML = `                
             <div class="gallery">
                 <div class="slideshow" id="slideshow">
-                    <button id="previous"><img class="previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
                     <img class="img-product-big ${ele.name}" id="${ele.id}" src="${ele.images[0]}" alt="picture-product">
-                    <button id="next"><img class="next" src="images/icon-next.svg" alt="icon-next"></button>
                 </div>
-                <div class="gallery-small">
-                    <img class="img-product-small" src="${ele.images[0]}" alt="picture-product-small">
-                    <img class="img-product-small" src="${ele.images[1]}" alt="picture-product-small">
-                    <img class="img-product-small" src="${ele.images[2]}" alt="picture-product-small">
-                    <img class="img-product-small" src="${ele.images[3]}" alt="picture-product-small">
+                <div class="thumbnails" id="thumbnails">
+                    <img class="thumb" src="${ele.images[0]}" alt="picture-product-small">
+                    <img class="thumb" src="${ele.images[1]}" alt="picture-product-small">
+                    <img class="thumb" src="${ele.images[2]}" alt="picture-product-small">
+                    <img class="thumb" src="${ele.images[3]}" alt="picture-product-small">
                 </div>
             </div>
             <div class="description" id="show-data-women">
@@ -50,7 +48,7 @@ function printDataWoman(data) {
                         <span>+</span>
                     </div>
                     <div class="btn-action back-primary d-flex">
-                        <button id="add-to cart" class="btn btn-xl secondary">Add-to cart</button>
+                        <button class="btn btn-xl secondary add-to-cart" data-id="${ele.id}">Add-to cart</button>
                         <img
                             class="cart-black"
                             src="images/icon-cart.svg"
@@ -59,49 +57,89 @@ function printDataWoman(data) {
                 </div>
             </div>
         `
-            // slider image
+            // click on Thumbnails change image big change
             const images = [`${ele.images[0]}`, `${ele.images[1]}`, `${ele.images[2]}`, `${ele.images[3]}`];
-            console.log(images);
             let currentIndex = 0;
-            console.log(currentIndex);
-            const previous = document.getElementById("previous");
-            console.log(previous);
-            const next = document.getElementById("next");
-            console.log(next);
             const mainImage = document.querySelector(".img-product-big");
-            console.log(mainImage);
+            const thumbnails = document.querySelectorAll(".thumb");
+            const popUpGallery = document.querySelector("#card-women-pop-up");
+            const navbar = document.querySelector("#navbar");
 
-            function showImage() {
+            thumbnails.forEach((image) => {
+                image.addEventListener("click", function () {
+                    mainImage.src = this.src;
+                    thumbnails.forEach((img) => {
+                        img.classList.remove("active");
+                    });
+                    this.classList.add("active");
+                });
+            });
 
-                mainImage.src = images[currentIndex];
-                console.log(mainImage.src);
+            // click in big image pop-up slider image It appears on the horizon
+            mainImage.addEventListener("click", function () {
+                popUpGallery.style.display = "block";
+                popUpGallery.classList.add("style-pop-up");
+                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0%)';
+                popUpGallery.innerHTML = `
+                <div class="gallery-po-up">
+                    <div class="slideshow" id="slideshow">
+                        <button id="close"><img class="close" src="images/icon-close.svg" alt="icon-close"></button> 
+                        <button id="previous"><img class="previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
+                        <img class="img-big ${ele.name}" id="${ele.id}" src="${ele.images[0]}" alt="picture-product">
+                        <button id="next"><img class="next" src="images/icon-next.svg" alt="icon-next"></button>
+                    </div>
+                    <div class="thumbnails-big" id="thumbnails">
+                        <img class="thumb-big" src="${ele.images[0]}" alt="picture-product-small">
+                        <img class="thumb-big" src="${ele.images[1]}" alt="picture-product-small">
+                        <img class="thumb-big" src="${ele.images[2]}" alt="picture-product-small">
+                        <img class="thumb-big" src="${ele.images[3]}" alt="picture-product-small">
+                    </div>
+                </div>
+                `
+                const bigImage = document.querySelector(".img-big");
+                const previous = document.getElementById("previous");
+                const next = document.getElementById("next");
+                const thumbnailsBig = document.querySelectorAll(".thumb-big");
+                const close = document.querySelector("#close");
 
-            }
-            showImage();
-
-            next.addEventListener("click", () => {
-                currentIndex++;
-                mainImage.src = images[currentIndex];
-
-                if (currentIndex >= images.length) {
-                    currentIndex = 0;
+                function showImage() {
+                    bigImage.src = images[currentIndex];
                 }
-
                 showImage();
+
+                next.addEventListener("click", () => {
+                    currentIndex++;
+                    bigImage.src = images[currentIndex];
+                    if (currentIndex >= images.length) {
+                        currentIndex = 0;
+                    }
+                    showImage();
+                })
+
+                previous.addEventListener("click", () => {
+                    currentIndex--;
+                    bigImage.src = images[currentIndex];
+                    if (currentIndex < 0) {
+                        currentIndex =
+                            images.length - 1;
+                    }
+                    showImage();
+                })
+
+                close.addEventListener("click", function () {
+                    popUpGallery.style.display = "none";
+                })
+
+                thumbnailsBig.forEach((image) => {
+                    image.addEventListener("click", function () {
+                        bigImage.src = this.src;
+                        thumbnails.forEach((img) => {
+                            img.classList.remove("active");
+                        });
+                        this.classList.add("active");
+                    });
+                });
             })
-
-            previous.addEventListener("click", () => {
-                currentIndex--;
-                mainImage.src = images[currentIndex];
-
-                if (currentIndex < 0) {
-                    currentIndex =
-                        images.length - 1;
-                }
-
-                showImage();
-            })
-
         })
     })
 }
@@ -137,11 +175,11 @@ function printDataMan(data) {
                     <img class="img-product-big ${ele.name}" src="${ele.images[0]}" alt="picture-product">
                     <button id="next"><img class="next" src="images/icon-next.svg" alt="icon-next"></button>
                 </div>
-                <div class="gallery-small">
-                    <img class="img-product-small" src="${ele.images[0]}" alt="picture-product-small">
-                    <img class="img-product-small" src="${ele.images[1]}" alt="picture-product-small">
-                    <img class="img-product-small" src="${ele.images[2]}" alt="picture-product-small">
-                    <img class="img-product-small" src="${ele.images[3]}" alt="picture-product-small">
+                <div class="thumbnails">
+                    <img class="thumb" src="${ele.images[0]}" alt="picture-product-small">
+                    <img class="thumb" src="${ele.images[1]}" alt="picture-product-small">
+                    <img class="thumb" src="${ele.images[2]}" alt="picture-product-small">
+                    <img class="thumb" src="${ele.images[3]}" alt="picture-product-small">
                 </div>
             </div>
             <div class="description" id="show-data-men">
@@ -157,7 +195,7 @@ function printDataMan(data) {
                         <span>+</span>
                     </div>
                     <div class="btn-action back-primary d-flex">
-                        <button id="add-to cart" class="btn btn-xl secondary">Add-to cart</button>
+                        <button class="btn btn-xl secondary add-to-cart" data-id="${ele.id}">Add-to cart</button>
                         <img
                             class="cart-black"
                             src="images/icon-cart.svg"
@@ -168,21 +206,18 @@ function printDataMan(data) {
         `
             // slider image
             const images = [`${ele.images[0]}`, `${ele.images[1]}`, `${ele.images[2]}`, `${ele.images[3]}`];
-            console.log(images);
+            // console.log(images);
             let currentIndex = 0;
-            console.log(currentIndex);
+            // console.log(currentIndex);
             const previous = document.getElementById("previous");
-            console.log(previous);
+            // console.log(previous);
             const next = document.getElementById("next");
-            console.log(next);
+            // console.log(next);
             const mainImage = document.querySelector(".img-product-big");
-            console.log(mainImage);
+            // console.log(mainImage);
 
             function showImage() {
-
                 mainImage.src = images[currentIndex];
-                console.log(mainImage.src);
-
             }
             showImage();
 

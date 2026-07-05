@@ -13,7 +13,7 @@
     </head>
     <body>
         <header class="header" id="header">
-            <nav class="navbar">
+            <nav class="navbar" id="navbar">
                 <div class="hamburger-menu" id="hamburger-menu">
                     <img
                         class="icon-hamburger active"
@@ -51,6 +51,7 @@
                 <div class="icons-navbar">
                     <img
                         class="cart"
+                        id="cart"
                         src="images/icon-cart.svg"
                         alt="icon-cart" />
                     <img
@@ -69,9 +70,13 @@
                 <div class="card" id="card-men"></div>
                 <div class="image-slider" id="image-slider"></div>
             </section>
+            <div id="card-women-pop-up"></div>
+            <div id="card-product-pop-up"></div>
+            <div class="display-cart" id="display-cart"></div>
         </header>
         <script src="src/javascript/script.js"></script>
-        <script src="src/javascript/product-category.js"></script>
         <script src="src/javascript/responsive-navbar.js"></script>
+        <script src="src/javascript/product-category.js"></script>
+        <script src="src/javascript/cart.js"></script>
     </body>
 </html>

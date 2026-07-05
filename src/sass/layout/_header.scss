@@ -22,7 +22,7 @@ header {
             top: 0;
             z-index: 3;
             padding-inline: var(--spacing-80);
-            box-shadow: 1px 1px 16px 0px hsl(220deg 13% 13% / 58%);
+            box-shadow: 0px 1px 1px 0px hsl(220deg 13% 13% / 58%);
 
             & > * {
                 flex-basis: auto;
@@ -80,8 +80,8 @@ header {
 
                     &:hover {
                         color: var(--Dark-grayish-blue);
-                        padding-bottom: 15px;
-                        border-bottom: 2px solid var(--color-pri-orange);
+                        padding-bottom: 16px;
+                        border-bottom: 3px solid var(--color-pri-orange);
                     }
                 }
             }
@@ -138,6 +138,142 @@ header {
 
         .image-slider {
             @extend .card;
+        }
+    }
+
+    .gallery-po-up {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        position: absolute;
+        width: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .slideshow {
+            position: relative;
+
+            #close {
+                position: absolute;
+                top: -3%;
+                right: -6%;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+                background-color: transparent;
+                padding: 20px;
+
+                .close {
+                    width: 25px;
+                    filter: brightness(0) invert(1);
+
+                    &:hover {
+                        filter: invert(58%) sepia(98%) saturate(1474%)
+                            hue-rotate(359deg) brightness(101%) contrast(104%);
+                    }
+                }
+            }
+
+            #previous {
+                position: absolute;
+                top: 50%;
+                left: 0px;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+                background-color: white;
+                padding: 20px;
+                border-radius: 50%;
+
+                .previous {
+                    &:hover {
+                        filter: invert(58%) sepia(98%) saturate(1474%)
+                            hue-rotate(359deg) brightness(101%) contrast(104%);
+                    }
+                }
+            }
+
+            .img-big {
+                border-radius: 25px;
+                cursor: pointer;
+            }
+
+            #next {
+                position: absolute;
+                top: 50%;
+                right: -50px;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+                background-color: white;
+                padding: 20px;
+                border-radius: 50%;
+
+                .next {
+                    &:hover {
+                        filter: invert(58%) sepia(98%) saturate(1474%)
+                            hue-rotate(359deg) brightness(101%) contrast(104%);
+                    }
+                }
+            }
+        }
+
+        .thumbnails-big {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+
+            .thumb-big {
+                width: 20%;
+                border-radius: 25px;
+                cursor: pointer;
+                object-fit: cover;
+                border: 3px solid transparent;
+                transition: 0.3s;
+
+                &:hover {
+                    opacity: 0.5;
+                    transform: scale(1.05);
+                }
+
+                &.active {
+                    border-color: var(--color-pri-orange);
+                }
+            }
+        }
+    }
+
+    .display-cart {
+        display: none;
+        width: 30%;
+        height: 30%;
+        background-color: var(--color-White);
+        padding: 30px 15px;
+        position: absolute;
+        top: 25%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+        border-radius: 15px;
+        box-shadow: 1px 1px 6px 0px hsl(220deg 13% 13% / 58%);
+
+        .cart-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+
+            h3 {
+                font: var(--font-body-g);
+            }
+
+            .cart-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+            }
         }
     }
 }
