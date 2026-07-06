@@ -271,47 +271,40 @@ function printData(data) {
     })
 }
 
-// Print Collections Product
-const collection = document.querySelector("#collection");
-const showCollections = document.querySelector("#show-collections");
+// Navbar
+const hamburgerMenu = document.querySelector("#hamburger-menu");
+const menu = document.querySelector("#menu");
+const hamburgerIcon = document.querySelector("#icon-hamburger");
+const iconClose = document.querySelector("#icon-close");
+const container = document.querySelector("#container");
+const mediaQuery = window.matchMedia("(max-width: 1023px)");
 
-async function getDataCollection() {
-    try {
-        const response = await fetch("http://localhost:3000/products");
-        const data = await response.json();
-        printDataCollection(data)
-    } catch (error) {
-        console.log(error);
-    }
-}
-getDataCollection();
+hamburgerIcon.addEventListener("click", function () {
+    menu.style.flexDirection = "column";
+    menu.style.gap = "15px";
+    menu.style.position = "absolute";
+    menu.style.zIndex = "1";
+    menu.style.top = "0";
+    menu.style.left = "0";
+    menu.style.backgroundColor = "var(--color-White)";
+    menu.style.width = "50%";
+    menu.style.height = "100%";
+    menu.style.padding = "5px 25px";
+    menu.style.borderRight = "2px solid var(--color-pri-orange)";
+    menu.style.borderBottom = "2px solid var(--color-pri-orange)";
+    menu.style.borderRadius = "5px";
+})
 
-function printDataCollection(data) {
-    data.map(function (ele) {
-        collection.addEventListener("click", () => {
-            showData.classList.add("hide");
-            cardWoman.classList.add("hide");
-            cardMan.classList.add("hide");
-            cardWoman.classList.remove("flex");
-            cardMan.classList.remove("flex");
-            showCollections.innerHTML +=
-                `
-        <div class="content" id="content">
-            <img class="img-product ${ele.name}" id="img-product" src="${ele.images[1]}" alt="picture-product">
-            <div class="parent">         
-            <h3>${ele.name}</h3>
-            <span class="price">$${ele.price}.00 <span class="percentage">${ele.reduction}%</span> <s class="discount">$${ele.compare_at_price}</s></span>
-            </div>
-            <div class="btn-action back-primary">
-                <button class="btn btn-xl primary add-to-cart" data-id="${ele.id}"><span>Bay Now</span></button>
-                <img
-                    class="cart-white"
-                    src="images/icon-cart.svg"
-                    alt="icon-cart" />
-            </div>
-            
-        </div>
-        `
-        })
-    })
-}
+hamburgerIcon.addEventListener("click", () => {
+    hamburgerIcon.classList.toggle("active");
+    menu.classList.toggle("flex");
+    iconClose.classList.toggle("active");
+    container.classList.add("color-back");
+})
+
+iconClose.addEventListener("click", () => {
+    iconClose.classList.toggle("active");
+    menu.classList.toggle("flex");
+    hamburgerIcon.classList.toggle("active");
+    container.classList.remove("color-back");
+})

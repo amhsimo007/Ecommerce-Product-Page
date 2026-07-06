@@ -1,18 +1,15 @@
 :root {
     --font-family: "Kumbh Sans", sans-serif;
 
-    // Colors-Primary
     --color-pri-orange: hsl(26, 100%, 55%);
     --color-pti-pale-orange: hsl(25, 99%, 68%);
 
-    // Colors-Neutral
     --Very-dark-blue: hsl(220, 13%, 13%);
     --Dark-grayish-blue: hsl(219, 9%, 45%);
     --Grayish-blue: hsl(220, 14%, 75%);
     --Light-grayish-blue: hsl(223, 64%, 98%);
     --color-White: hsl(0, 0%, 100%);
 
-    // Spacing
     --spacing-0: 0;
     --spacing-5: 5px;
     --spacing-8: 8px;
@@ -29,7 +26,6 @@
     --spacing-64: 64px;
     --spacing-80: 80px;
 
-    // font
     --font-heading-1: 700 40px/110% var(--font-family);
     --font-heading-2: 700 24px/110% var(--font-family);
 
