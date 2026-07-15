@@ -174,7 +174,16 @@ header {
             h3 {
                 font: var(--font-heading-2);
                 color: var(--Very-dark-blue);
+                border-bottom: 2px solid var(--Dark-grayish-blue);
+                padding-bottom: 16px;
             }
+
+            // & :nth-child(2) {
+            //     position: absolute;
+            //     top: 50%;
+            //     left: 45%;
+            //     transform: translate(-50%, -50%);
+            // }
 
             .cart-content {
                 display: flex;
