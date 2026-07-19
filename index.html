@@ -9,70 +9,76 @@
             href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,40..300&display=swap"
             rel="stylesheet" />
         <link rel="stylesheet" href="public/main.css" />
+        <link
+            rel="shortcut icon"
+            href="images/favicon-32x32.png"
+            type="image/icon-png"
+            sizes="32x32" />
         <title>E-commerce Product Page</title>
     </head>
     <body>
         <header class="header" id="header">
-            <nav class="navbar" id="navbar">
-                <div class="hamburger-menu" id="hamburger-menu">
-                    <img
-                        class="icon-hamburger active"
-                        id="icon-hamburger"
-                        src="images/icon-menu.svg"
-                        alt="icon-hamburger" />
-                </div>
-                <img class="logo" src="images/logo.svg" alt="icon-logo" />
-                <div class="parent" id="parent">
-                    <ul class="menu" id="menu">
+            <nav>
+                <section class="navbar container" id="navbar">
+                    <div class="hamburger-menu" id="hamburger-menu">
                         <img
-                            class="icon-close"
-                            id="icon-close"
-                            src="images/icon-close.svg"
-                            alt="icon-close" />
-                        <li id="collection" class="list-menu">
-                            <a href="#">Collection</a>
-                        </li>
-                        <li id="men" class="list-menu">
-                            <a href="#">Men</a>
-                        </li>
-                        <li id="women" class="list-menu">
-                            <a href="#">Women</a>
-                        </li>
-                        <li id="about" class="list-menu">
-                            <a href="#">About</a>
-                        </li>
-                        <li id="contact" class="list-menu">
-                            <a href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="icons-navbar">
-                    <img
-                        class="cart"
-                        id="cart"
-                        src="images/icon-cart.svg"
-                        alt="icon-cart" />
-                    <span id="cart-badge" class="cart-badge"></span>
-                    <img
-                        class="avatar"
-                        src="images/image-avatar.png"
-                        alt="icon-avatar-user" />
-                </div>
+                            class="icon-hamburger active"
+                            id="icon-hamburger"
+                            src="images/icon-menu.svg"
+                            alt="icon-hamburger" />
+                    </div>
+                    <img class="logo" src="images/logo.svg" alt="icon-logo" />
+                    <div class="parent" id="parent">
+                        <ul class="menu" id="menu">
+                            <img
+                                class="icon-close"
+                                id="icon-close"
+                                src="images/icon-close.svg"
+                                alt="icon-close" />
+                            <li id="collection" class="list-menu">
+                                <a href="#">Collection</a>
+                            </li>
+                            <li id="men" class="list-menu">
+                                <a href="#">Men</a>
+                            </li>
+                            <li id="women" class="list-menu">
+                                <a href="#">Women</a>
+                            </li>
+                            <li id="about" class="list-menu">
+                                <a href="#">About</a>
+                            </li>
+                            <li id="contact" class="list-menu">
+                                <a href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="icons-navbar">
+                        <img
+                            class="cart"
+                            id="cart"
+                            src="images/icon-cart.svg"
+                            alt="icon-cart" />
+                        <span id="cart-badge" class="cart-badge"></span>
+                        <img
+                            class="avatar"
+                            src="images/image-avatar.png"
+                            alt="icon-avatar-user" />
+                    </div>
+                </section>
             </nav>
-            <section class="container" id="container">
+            <section class="hero-wraper container">
                 <div class="show-all-product" id="show-all-product">
                     <h1 class="title">Our Products</h1>
                     <div class="show-data" id="show-data"></div>
                 </div>
-                <div class="image-slider" id="image-slider"></div>
+                <div class="image-slider" id="image-slider-women"></div>
+                <div class="image-slider" id="image-slider-men"></div>
                 <div class="display-cart" id="display-cart"></div>
+                <div id="card-product-pop-up"></div>
             </section>
-            <div id="card-women-pop-up"></div>
-            <div id="card-product-pop-up"></div>
         </header>
-        <script src="src/javascript/api.js"></script>
+        <script src="src/javascript/home-page.js"></script>
+        <script src="src/javascript/navBar.js"></script>
         <script src="src/javascript/cart.js"></script>
-        <!-- <script src="src/javascript/home-page.js"></script>
-        <script src="src/javascript/product-page.js"></script> -->
     </body>
 </html>

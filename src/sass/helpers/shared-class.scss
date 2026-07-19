@@ -11,8 +11,9 @@
 }
 
 .color-back {
-    background-color: rgba(0, 0, 0, 0.983) !important;
-    opacity: 0.5 !important;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5) !important;
 }
 
 .style-pop-up {
@@ -23,6 +24,34 @@
 
 .opacity {
     background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.container {
+    padding: var(--spacing-8) var(--spacing-16);
+    position: relative;
+    max-width: 1440px;
+    margin: var(--spacing-0) auto;
+
+    @include breakpoint("lg") {
+        padding: var(--spacing-16) var(--spacing-80);
+    }
+}
+
+.style-mobile-menu {
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--color-White);
+    width: 50%;
+    padding: 5px 25px;
+    border-right: 2px solid var(--color-pri-orange);
+    border-bottom: 2px solid var(--color-pri-orange);
+    border-radius: var(--spacing-5);
+    transition: 0.3s;
+    height: 100vh;
 }
 
 .show-data {
@@ -48,13 +77,19 @@
 
         .img-product {
             border: 1px solid var(--Grayish-blue);
-            border-bottom-left-radius: var(--spacing-5);
-            border-bottom-right-radius: var(--spacing-5);
+            border-radius: var(--spacing-5);
             cursor: pointer;
 
             &:hover {
                 border: 2px solid var(--color-pri-orange);
                 opacity: 0.5;
+            }
+
+            @include breakpoint("lg") {
+                border-top-left-radius: var(--spacing-0);
+                border-top-right-radius: var(--spacing-0);
+                border-bottom-left-radius: var(--spacing-5);
+                border-bottom-right-radius: var(--spacing-5);
             }
         }
 
@@ -139,7 +174,7 @@
                 border-radius: 50%;
             }
 
-            .img-product-big {
+            .img-product {
                 border-radius: var(--spacing-5);
                 cursor: pointer;
 

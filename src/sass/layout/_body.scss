@@ -18,6 +18,7 @@ html {
 body {
     font-family: var(--font-family);
     background-color: var(--Light-grayish-blue);
+    height: 2000px;
 }
 
 a {
@@ -44,14 +45,4 @@ figure {
     display: block;
     max-width: 100%;
     height: auto;
-}
-
-.container {
-    padding: var(--spacing-0) var(--spacing-16);
-    max-width: 1440px;
-    margin: var(--spacing-0) auto;
-
-    @include breakpoint("lg") {
-        padding: var(--spacing-0) var(--spacing-80);
-    }
 }
