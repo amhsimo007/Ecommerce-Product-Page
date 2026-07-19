@@ -179,7 +179,7 @@ function createCartItem(item) {
             <img class="cart-img" src="${item.images[0]}" alt="picture-${item.name}">
             <div class="info-product">
                 <span>${item.name}</span>
-                <span>$${item.price}×${item.quantity} <p>$${getSubtotal(item)}.00</p></span>
+                <span>$${item.price}×${item.quantity} $${getSubtotal(item)}.00</span>
             </div>
             <img class="icon-delete" id="icon-delete" onclick="removeProduct('${item.id}')" src="images/icon-delete.svg" alt="icon-delete" />
         </div>

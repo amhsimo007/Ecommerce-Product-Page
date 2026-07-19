@@ -1,0 +1,178 @@
+.card {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 65px;
+    padding: 16px 32px;
+
+    @include breakpoint("lg") {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+
+        @include breakpoint("lg") {
+            width: 50%;
+        }
+
+        .slideshow {
+            position: relative;
+
+            #previous {
+                position: absolute;
+                top: 50%;
+                left: 0px;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+                background-color: white;
+                padding: 20px;
+                border-radius: 50%;
+            }
+
+            .img-product {
+                border-radius: var(--spacing-5);
+                cursor: pointer;
+
+                &:hover {
+                    border: 2px solid var(--color-pri-orange);
+                    opacity: 0.5;
+                }
+            }
+
+            #next {
+                position: absolute;
+                top: 50%;
+                right: -50px;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+                background-color: white;
+                padding: var(--spacing-20);
+                border-radius: 50%;
+            }
+        }
+
+        .thumbnails {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-16);
+
+            .thumb {
+                width: 20%;
+                border-radius: var(--spacing-5);
+                cursor: pointer;
+                object-fit: cover;
+                border: 3px solid transparent;
+                transition: 0.3s;
+
+                &:hover {
+                    opacity: 0.5;
+                    transform: scale(1.05);
+                }
+
+                &.active {
+                    border-color: var(--color-pri-orange);
+                }
+            }
+        }
+    }
+
+    .description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 15px;
+
+        @include breakpoint("lg") {
+            width: 50%;
+        }
+
+        span {
+            font: var(--font-body-s);
+            color: var(--Dark-grayish-blue);
+        }
+
+        .subtitle {
+            font: var(--font-heading-1);
+            color: var(--Very-dark-blue);
+        }
+
+        .paragraph {
+            font: var(--font-body-s);
+            color: var(--Dark-grayish-blue);
+        }
+
+        .price {
+            font: var(--font-body-l);
+            color: var(--Very-dark-blue);
+            text-align: center;
+
+            @include breakpoint("lg") {
+                font: var(--font-body-g);
+            }
+
+            .percentage {
+                font: var(--font-body-s);
+                background-color: var(--Very-dark-blue);
+                padding: 5px 7px;
+                color: var(--color-White);
+                border-radius: 5px;
+            }
+        }
+
+        .discount {
+            font: var(--font-body-s);
+            color: var(--Grayish-blue);
+        }
+
+        .counter-cart {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+
+            @include breakpoint("lg") {
+                flex-direction: row;
+            }
+
+            .counter {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 5px;
+                padding: 10px 15px;
+                background-color: var(--Grayish-blue);
+                border-radius: 5px;
+                width: 100%;
+                font: var(--font-button-m);
+
+                @include breakpoint("lg") {
+                    width: 50%;
+                    font: var(--font-button-l);
+                }
+
+                :first-child,
+                :last-child {
+                    color: var(--color-pri-orange);
+                    cursor: pointer;
+                }
+
+                :nth-child(2) {
+                    color: var(--Very-dark-blue);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

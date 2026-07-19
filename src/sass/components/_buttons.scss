@@ -39,7 +39,7 @@
             color: black;
 
             @include breakpoint("lg") {
-                padding-block: var(--spacing-8);
+                padding-block: var(--spacing-12);
             }
         }
     }
