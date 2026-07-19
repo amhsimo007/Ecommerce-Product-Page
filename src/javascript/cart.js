@@ -181,7 +181,7 @@ function createCartItem(item) {
                 <span>${item.name}</span>
                 <span>$${item.price}×${item.quantity} <p>$${getSubtotal(item)}.00</p></span>
             </div>
-            <img class="icon-delete" id="icon-delete" src="images/icon-delete.svg" alt="icon-delete" />
+            <img class="icon-delete" id="icon-delete" onclick="removeProduct('${item.id}')" src="images/icon-delete.svg" alt="icon-delete" />
         </div>
         `
 }
