@@ -169,7 +169,7 @@ function getSubtotal(item) {
 }
 
 function createCartItem(item) {
-
+    displayCart.innerHTML = "";
     let total = 0;
     const subtotal = item.price * item.quantity;
     total += subtotal;

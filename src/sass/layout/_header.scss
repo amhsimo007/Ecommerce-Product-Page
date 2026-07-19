@@ -203,13 +203,10 @@ header {
                 font: var(--font-heading-2);
             }
         }
-
-        // & :nth-child(2) {
-        //     position: absolute;
-        //     top: 50%;
-        //     left: 45%;
-        //     transform: translate(-50%, -50%);
-        // }
+        p {
+            margin: 135px;
+            font: var(--font-heading-2);
+        }
 
         .cart-content {
             display: flex;
