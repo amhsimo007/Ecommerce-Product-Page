@@ -31,35 +31,36 @@ A modern and responsive E-Commerce Store built using **HTML5**, **SCSS**, and **
 ```
 Ecommerce-product-page-coding-challenge/
 │
-├── index.html
+├── index.html                                               # Main HTML file
 │
 ├── design/ home-page + product-page
 ├── images
 │      └──  icons/
 │
-├── api/
+├── api/                                                     # JSON file API containing movie data
 │   └── products.json
 │
-├── public/ css/
+├── public/ css/                                             # Compiled CSS file
 │   └── style.css
 │
-├── scss/
-│   ├── components/ buttons + cart
-│   ├── helpers/ mixin + variables + shared class
-│   ├──layout/ body + header
-│   ├── utilities/
-│   └── style.scss
 │
 ├── src /
-│       └──  js/
+│       └──  js/                                             # JavaScript with functionality (fetches from API)
 │          ├── cart.js
 │          ├── home-page.js
 │          │   ├──slider
 │          │   ├── storage.js
 │          ├── navBar.js
 │          └──  helpers.js
+│
+│      └── ├── scss/                                         # Sass source file
+│          ├── components/ buttons + cart
+│          ├── helpers/ mixin + variables + shared class
+│          ├──layout/ body + header
+│          ├── utilities/
+│          └── style.scss
 ├── main.scss
-└── README.md
+└── README.md                                                 # This file
 ```
 
 ---
@@ -221,27 +222,6 @@ And to modify and access the page you must :
 Then the open index.html whit live server or double click.
 
 4. Enjoy!
-
----
-
-# 📸 Screenshots
-
-Add screenshots of your project here.
-
-<figure>
-<img
-                src="design/home-page/Desktop_Gemini_Generated_Image_i73474i73474i734.png"
-                width="50%" />
-<img
-                src="design/home-page/Mobile_Gemini_Generated_Image_tkis38tkis38tkis.png"
-                width="50%" />
-<img
-                src="design/product-page/active-states-basket-empty.jpg"
-                width="50%" />
-<img
-                src="design/product-page/mobile-design-basket-filled.jpg"
-                width="50%" />
-</figure>
 
 ```
 Home Page
