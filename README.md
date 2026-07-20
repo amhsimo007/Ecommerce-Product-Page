@@ -1,6 +1,9 @@
 # 🛒 E-Commerce Store
 
 A modern and responsive E-Commerce Store built using **HTML5**, **SCSS**, and **Vanilla JavaScript**. This project focuses on clean architecture, reusable components, and modern JavaScript best practices without using any frontend framework.
+
+the link to the website that was published via website hosting:
+
 ====> Click the link to visit the website ( https://amhsimo007.github.io/Ecommerce-Product-Page/ ).
 
 ---
@@ -30,7 +33,7 @@ A modern and responsive E-Commerce Store built using **HTML5**, **SCSS**, and **
 ## 📂 Project Structure
 
 ```
-Ecommerce-product-page-coding-challenge/
+E-commerce-product-page-coding-challenge/
 │
 ├── index.html                                               # Main HTML file
 │
@@ -46,20 +49,19 @@ Ecommerce-product-page-coding-challenge/
 │
 │
 ├── src /
-│       └──  js/                                             # JavaScript with functionality (fetches from API)
-│          ├── cart.js
-│          ├── home-page.js
-│          │   ├──slider
-│          │   ├── storage.js
-│          ├── navBar.js
-│          └──  helpers.js
-│
-│      └── ├── scss/                                         # Sass source file
-│          ├── components/ buttons + cart
-│          ├── helpers/ mixin + variables + shared class
-│          ├──layout/ body + header
-│          ├── utilities/
-│          └── style.scss
+│       │└──  js/                                             # JavaScript with functionality (fetches from API)
+│       │   ├── cart.js
+│       │   ├── home-page.js
+│       │   │   ├──slider
+│       │   │   ├── storage.js
+│       │   ├── navBar.js
+│       │   └──  helpers.js
+│       │
+│       └── ├── scss/                                         # Sass source file
+│           ├── components/ buttons + cart
+│           ├── helpers/ mixin + variables + shared class
+│           ├── layout/ body + header
+│           └── style.scss
 ├── main.scss
 └── README.md                                                 # This file
 ```
