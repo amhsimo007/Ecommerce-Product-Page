@@ -1,0 +1,55 @@
+.active {
+    display: block !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+.flex {
+    display: flex !important;
+}
+
+.color-back {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.style-pop-up {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.opacity {
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.container {
+    padding: var(--spacing-8) var(--spacing-16);
+    position: relative;
+    max-width: 1440px;
+    margin: var(--spacing-0) auto;
+
+    @include breakpoint("lg") {
+        padding: var(--spacing-16) var(--spacing-80);
+    }
+}
+
+.style-mobile-menu {
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--color-White);
+    width: 50%;
+    padding: 5px 25px;
+    border-right: 2px solid var(--color-pri-orange);
+    border-bottom: 2px solid var(--color-pri-orange);
+    border-radius: var(--spacing-5);
+    transition: 0.3s;
+    height: 100vh;
+}

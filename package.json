@@ -1,0 +1,27 @@
+{
+  "name": "ecommerce-product-page-coding-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "sass --watch src/sass/main.scss public/main.css",
+    "build": "sass src/sass/main.scss public/main.css",
+    "server": "json-server --watch api/products.json --port 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amhsimo007/Ecommerce-Product-Page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/amhsimo007/Ecommerce-Product-Page/issues"
+  },
+  "homepage": "https://github.com/amhsimo007/Ecommerce-Product-Page#readme",
+  "devDependencies": {
+    "json-server": "^1.0.0-beta.15",
+    "sass": "^1.101.0"
+  }
+}

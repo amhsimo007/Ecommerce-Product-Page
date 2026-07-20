@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": "product-f407b6c6-d0cd-4cc3-8082-9a25ddc91c09",
+      "name": "Fall Limited Edition Sneakers",
+      "brand": "Sneaker Company",
+      "description": "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.",
+      "price": 125.00,
+      "compare_at_price": 250.00,
+      "reduction": 50,
+      "images": [
+        "./api/product-images/first-product-1.jpg",
+        "./api/product-images/first-product-2.jpg",
+        "./api/product-images/first-product-3.jpg",
+        "./api/product-images/first-product-4.jpg"
+      ]
+    },
+    {
+      "id": "product-i407b6c6-4kdl-2eec-7890-23f4b5c6d7e8",
+      "name": "Air-Flow Runners",
+      "brand": "Sneaker Company",
+      "description": "Experience unmatched comfort and style with our Air-Flow Runners. Designed for both performance and aesthetics, these sneakers feature breathable materials and a sleek design that complements any outfit.",
+      "price": 155.00,
+      "compare_at_price": 172.22,
+      "reduction": 10,
+      "images": [
+        "./api/product-images/second-product-1.jpg",
+        "./api/product-images/second-product-2.jpg",
+        "./api/product-images/second-product-3.jpg",
+        "./api/product-images/second-product-4.jpg"
+      ]
+    }
+  ]
+}
+
+

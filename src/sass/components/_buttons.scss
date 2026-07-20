@@ -1,0 +1,56 @@
+.btn-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    background: var(--color-pri-orange);
+
+    &:hover {
+        background: var(--color-pti-pale-orange);
+    }
+
+    &.d-flex {
+        flex-direction: row-reverse !important;
+    }
+
+    .btn {
+        font-size: var(--font-button-m);
+
+        &-xl {
+            @include breakpoint("lg") {
+                font: var(--font-button-l);
+            }
+        }
+
+        &.primary {
+            padding-block: var(--spacing-5);
+            color: var(--color-White);
+
+            @include breakpoint("lg") {
+                padding-block: var(--spacing-8);
+            }
+        }
+
+        &.secondary {
+            padding: var(--spacing-8);
+            color: black;
+
+            @include breakpoint("lg") {
+                padding-block: var(--spacing-12);
+            }
+        }
+    }
+
+    .cart-white {
+        filter: brightness(0) invert(1);
+        width: 6%;
+    }
+
+    .cart-black {
+        filter: brightness(0);
+        width: 6%;
+    }
+}
