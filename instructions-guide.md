@@ -30,7 +30,7 @@ A modern and responsive E-Commerce Store built using **HTML5**, **SCSS**, and **
 ## 📂 Project Structure
 
 ```
-Ecommerce-product-page-coding-challenge/
+E-commerce-product-page-coding-challenge/
 │
 ├── index.html                                               # Main HTML file
 │
@@ -46,20 +46,19 @@ Ecommerce-product-page-coding-challenge/
 │
 │
 ├── src /
-│       └──  js/                                             # JavaScript with functionality (fetches from API)
-│          ├── cart.js
-│          ├── home-page.js
-│          │   ├──slider
-│          │   ├── storage.js
-│          ├── navBar.js
-│          └──  helpers.js
-│
-│      └── ├── scss/                                         # Sass source file
-│          ├── components/ buttons + cart
-│          ├── helpers/ mixin + variables + shared class
-│          ├──layout/ body + header
-│          ├── utilities/
-│          └── style.scss
+│       │└──  js/                                             # JavaScript with functionality (fetches from API)
+│       │   ├── cart.js
+│       │   ├── home-page.js
+│       │   │   ├──slider
+│       │   │   ├── storage.js
+│       │   ├── navBar.js
+│       │   └──  helpers.js
+│       │
+│       └── ├── scss/                                         # Sass source file
+│           ├── components/ buttons + cart
+│           ├── helpers/ mixin + variables + shared class
+│           ├── layout/ body + header
+│           └── style.scss
 ├── main.scss
 └── README.md                                                 # This file
 ```
