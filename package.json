@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "sass --watch src/sass/main.scss public/main.css",
     "build": "sass src/sass/main.scss public/main.css",
-    "server": "json-server --watch src/api/products.json --port 3000"
+    "server": "json-server --watch api/products.json --port 3000"
   },
   "repository": {
     "type": "git",
