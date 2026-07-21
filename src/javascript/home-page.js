@@ -11,7 +11,7 @@ let allProducts = [];
 
 async function getData() {
     try {
-        const response = await fetch("http://localhost:3000/products");
+        const response = await fetch("../api/products.json");
         const data = await response.json();
         allProducts = data;
         printData(data);
@@ -120,7 +120,7 @@ function printData(data) {
                         popUpGalleryProduct.classList.add("style-pop-up");
                         navbar.style.backgroundColor = 'rgba(0, 0, 0, 0%)';
                         popUpGalleryProduct.innerHTML = `
-                <div class="gallery-po-up">
+                <div class="gallery-pop-up">
                     <div class="slideshow" id="slideshow-women">
                         <button id="close-women" class="btn-close"><img class="icon-close" src="images/icon-close.svg" alt="icon-close"></button> 
                         <button id="previous-women" class="btn-previous"><img class="icon-previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
@@ -264,7 +264,7 @@ function printData(data) {
                         popUpGalleryProductMen.classList.add("style-pop-up");
                         navbar.style.backgroundColor = 'rgba(0, 0, 0, 0%)';
                         popUpGalleryProductMen.innerHTML = `
-                <div class="gallery-po-up">
+                <div class="gallery-pop-up">
                     <div class="slideshow" id="slideshow-men">
                         <button id="close-men" class="btn-close"><img class="icon-close" src="images/icon-close.svg" alt="icon-close"></button> 
                         <button id="previous-men" class="btn-previous"><img class="icon-previous" src="images/icon-previous.svg" alt="icon-previous"></button>    
