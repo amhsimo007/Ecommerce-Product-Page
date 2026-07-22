@@ -1,6 +1,7 @@
 const cartIcon = document.querySelector("#cart");
 const displayCart = document.querySelector("#display-cart");
 const showData = document.querySelector("#show-data");
+const fetchUrl = "http://localhost:3000/products";
 
 cartIcon.addEventListener("click", function () {
     displayCart.classList.toggle("flex");
@@ -11,7 +12,7 @@ let allProducts = [];
 
 async function getData() {
     try {
-        const response = await fetch("http://localhost:3000/products");
+        const response = await fetch(fetchUrl);
         const data = await response.json();
         allProducts = data;
         printData(data);
@@ -49,7 +50,7 @@ function printData(data) {
 
         async function getDataSlideshowOne() {
             try {
-                const response = await fetch("http://localhost:3000/products");
+                const response = await fetch(fetchUrl);
                 let data = await response.json();
                 data = data.filter(product => product.id === "product-f407b6c6-d0cd-4cc3-8082-9a25ddc91c09");
                 printDataImageA(data);
@@ -190,7 +191,7 @@ function printData(data) {
 
         async function getDataSlideshowTwo() {
             try {
-                const response = await fetch("http://localhost:3000/products");
+                const response = await fetch(fetchUrl);
                 let data = await response.json();
                 data = data.filter(product => product.id === "product-i407b6c6-4kdl-2eec-7890-23f4b5c6d7e8");
                 printDataImageB(data);
