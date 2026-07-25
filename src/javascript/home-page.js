@@ -1,7 +1,7 @@
 const cartIcon = document.querySelector("#cart");
 const displayCart = document.querySelector("#display-cart");
 const showData = document.querySelector("#show-data");
-const fetchUrl = "http://localhost:3000/products";
+const localhost = "http://localhost:3000/products";
 
 cartIcon.addEventListener("click", function () {
     displayCart.classList.toggle("flex");
@@ -12,7 +12,7 @@ let allProducts = [];
 
 async function getData() {
     try {
-        const response = await fetch(fetchUrl);
+        const response = await fetch(localhost);
         const data = await response.json();
         allProducts = data;
         printData(data);
@@ -45,12 +45,12 @@ function printData(data) {
         `
         // Products for women will be displayed when you click on their image
 
-        let imgProductWomen = document.querySelector("#product-f407b6c6-d0cd-4cc3-8082-9a25ddc91c09");
-        let currentImageWomen = document.querySelector("#image-slider-women");
+        const imgProductWomen = document.querySelector("#product-f407b6c6-d0cd-4cc3-8082-9a25ddc91c09");
+        const currentImageWomen = document.querySelector("#image-slider-women");
 
         async function getDataSlideshowOne() {
             try {
-                const response = await fetch(fetchUrl);
+                const response = await fetch(localhost);
                 let data = await response.json();
                 data = data.filter(product => product.id === "product-f407b6c6-d0cd-4cc3-8082-9a25ddc91c09");
                 printDataImageA(data);
@@ -68,7 +68,9 @@ function printData(data) {
                     currentImageWomen.innerHTML = `                
             <div class="gallery">
                 <div class="slideshow">
+                    <button id="previous-mobile-women" class="btn-previous"><img class="icon-previous" src="images/icon-previous.svg" alt="icon-previous"></button>
                     <img class="img-product" id="img-product-women" src="${ele.images[0]}" alt="picture-product">
+                    <button id="next-mobile-women" class="btn-next"><img class="icon-next" src="images/icon-next.svg" alt="icon-next"></button>
                 </div>
                 <div class="thumbnails">
                     <img class="thumb" src="${ele.images[0]}" alt="picture-product-small">
@@ -105,6 +107,16 @@ function printData(data) {
                     const mainImageProduct = document.getElementById("img-product-women");
                     const thumbnailsProduct = document.querySelectorAll(".thumb");
                     const popUpGalleryProduct = document.querySelector("#card-product-pop-up");
+                    const previousMobileWomen = document.querySelector("#previous-mobile-women");
+                    const nextMobileWomen = document.querySelector("#next-mobile-women");
+
+                    let currentIndexMobileW = 0;
+
+                    function showImageMobileW() {
+                        mainImageProduct.src = imagesProducts[currentIndexMobileW];
+                    }
+                    showImageMobileW();
+
 
                     thumbnailsProduct.forEach((image) => {
                         image.addEventListener("click", function () {
@@ -115,6 +127,26 @@ function printData(data) {
                             this.classList.add("active");
                         });
                     });
+
+                    nextMobileWomen.addEventListener("click", () => {
+                        currentIndexMobileW++;
+                        mainImageProduct.src = imagesProducts[currentIndexMobileW];
+                        if (currentIndexMobileW >= imagesProducts.length) {
+                            currentIndexMobileW = 0;
+                        }
+                        showImageMobileW();
+                    })
+
+                    previousMobileWomen.addEventListener("click", () => {
+                        currentIndexMobileW--;
+                        mainImageProduct.src = imagesProducts[currentIndexMobileW];
+                        if (currentIndexMobileW < 0) {
+                            currentIndexMobileW =
+                                imagesProducts.length - 1;
+                        }
+                        showImageMobileW();
+                    })
+
                     // click in big image product women pop-up slider image It appears on the horizon
                     mainImageProduct.addEventListener("click", function () {
                         popUpGalleryProduct.style.display = "block";
@@ -154,10 +186,10 @@ function printData(data) {
 
                         let currentIndexProduct = 0;
 
-                        function showImage() {
+                        function showImageWomen() {
                             mainImageBig.src = imagesProducts[currentIndexProduct];
                         }
-                        showImage();
+                        showImageWomen();
 
                         next.addEventListener("click", () => {
                             currentIndexProduct++;
@@ -165,7 +197,7 @@ function printData(data) {
                             if (currentIndexProduct >= imagesProducts.length) {
                                 currentIndexProduct = 0;
                             }
-                            showImage();
+                            showImageWomen();
                         })
 
                         previous.addEventListener("click", () => {
@@ -175,7 +207,7 @@ function printData(data) {
                                 currentIndexProduct =
                                     imagesProducts.length - 1;
                             }
-                            showImage();
+                            showImageWomen();
                         })
 
                         iconCloseWomen.addEventListener("click", function () {
@@ -188,10 +220,12 @@ function printData(data) {
             )
         }
         // Products for men will be displayed when you click on their image
+        const imgProductMen = document.querySelector("#product-i407b6c6-4kdl-2eec-7890-23f4b5c6d7e8");
+        const currentImageMen = document.getElementById("image-slider-men");
 
         async function getDataSlideshowTwo() {
             try {
-                const response = await fetch(fetchUrl);
+                const response = await fetch(localhost);
                 let data = await response.json();
                 data = data.filter(product => product.id === "product-i407b6c6-4kdl-2eec-7890-23f4b5c6d7e8");
                 printDataImageB(data);
@@ -201,9 +235,6 @@ function printData(data) {
         }
         getDataSlideshowTwo()
 
-        let imgProductMen = document.querySelector("#product-i407b6c6-4kdl-2eec-7890-23f4b5c6d7e8");
-        let currentImageMen = document.querySelector("#image-slider-men");
-
         function printDataImageB(data) {
             data.map(function (ele) {
                 imgProductMen.addEventListener("click", () => {
@@ -212,7 +243,9 @@ function printData(data) {
                     currentImageMen.innerHTML = `                
             <div class="gallery">
                 <div class="slideshow">
+                    <button id="previous-men-mobile" class="btn-previous"><img class="icon-previous" src="images/icon-previous.svg" alt="icon-previous"></button> 
                     <img class="img-product" id="img-product-men" src="${ele.images[0]}" alt="picture-product">
+                    <button id="next-men-mobile" class="btn-next"><img class="icon-next" src="images/icon-next.svg" alt="icon-next"></button>
                 </div>
                 <div class="thumbnails">
                     <img class="thumb thumb-men" src="${ele.images[0]}" alt="picture-product-small">
@@ -248,6 +281,8 @@ function printData(data) {
                     const mainImageProductMen = document.getElementById("img-product-men");
                     const thumbnailsMem = document.querySelectorAll(".thumb-men");
                     const popUpGalleryProductMen = document.querySelector("#card-product-pop-up");
+                    const previousMenMobile = document.querySelector("#previous-men-mobile");
+                    const nextMenMobile = document.querySelector("#next-men-mobile");
 
                     thumbnailsMem.forEach((image) => {
                         image.addEventListener("click", function () {
@@ -258,6 +293,32 @@ function printData(data) {
                             this.classList.add("active");
                         });
                     });
+
+                    let currentIndexMobileM = 0;
+
+                    function showImageMobileM() {
+                        mainImageProductMen.src = images[currentIndexMobileM];
+                    }
+                    showImageMobileM();
+
+                    nextMenMobile.addEventListener("click", () => {
+                        currentIndexMobileM++;
+                        mainImageProductMen.src = images[currentIndexMobileM];
+                        if (currentIndexMobileM >= images.length) {
+                            currentIndexMobileM = 0;
+                        }
+                        showImageMobileM();
+                    })
+
+                    previousMenMobile.addEventListener("click", () => {
+                        currentIndexMobileM--;
+                        mainImageProductMen.src = images[currentIndexMobileM];
+                        if (currentIndexMobileM < 0) {
+                            currentIndexMobileM =
+                                images.length - 1;
+                        }
+                        showImageMobileM();
+                    })
 
                     // click in big image product men pop-up slider image It appears on the horizon
                     mainImageProductMen.addEventListener("click", function () {
@@ -298,10 +359,11 @@ function printData(data) {
                         });
 
                         let currentIndex = 0;
-                        function showImage() {
+
+                        function showImageMen() {
                             mainImageBigMen.src = images[currentIndex];
                         }
-                        showImage();
+                        showImageMen();
 
                         nextMen.addEventListener("click", () => {
                             currentIndex++;
@@ -311,7 +373,7 @@ function printData(data) {
                                 currentIndex = 0;
                             }
 
-                            showImage();
+                            showImageMen();
                         })
 
                         previousMen.addEventListener("click", () => {
@@ -323,7 +385,7 @@ function printData(data) {
                                     images.length - 1;
                             }
 
-                            showImage();
+                            showImageMen();
                         })
 
                         iconCloseMen.addEventListener("click", function () {

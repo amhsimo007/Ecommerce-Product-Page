@@ -23,17 +23,17 @@ function increaseQuantity(id) {
     product.quantity++;
 
     if (countTextWomen) {
-        countTextWomen.innerHTML =
-            `
-        <span class="count-text">${product.quantity}</span>
-        `
+        countTextWomen.textContent = product.quantity;
+        //     `
+        // <span class="count-text">${product.quantity}</span>
+        // `
     }
 
     if (countTextMen) {
-        countTextMen.innerHTML =
-            `
-        <span class="count-text">${product.quantity}</span>
-        `
+        countTextMen.textContent = product.quantity;
+        //     `
+        // <span class="count-text">${product.quantity}</span>
+        // `
     }
 
     updateCart();
@@ -49,17 +49,11 @@ function decreaseQuantity(id) {
         product.quantity--;
 
         if (countTextWomen) {
-            countTextWomen.innerHTML =
-                `
-        <span class="count-text">${product.quantity}</span>
-        `
+            countTextWomen.textContent = product.quantity;
         }
 
         if (countTextMen) {
-            countTextMen.innerHTML =
-                `
-        <span class="count-text">${product.quantity}</span>
-        `
+            countTextMen.textContent = product.quantity;
         }
 
     } else {
@@ -119,6 +113,10 @@ function renderCart() {
             <button id="checkout" class="btn btn-xl secondary checkout">Checkout</button>
         </div>
     `
+        const checkout = document.getElementById("checkout");
+        checkout.addEventListener("click", function () {
+            location.reload();
+        })
     }
 
 }

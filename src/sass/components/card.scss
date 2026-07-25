@@ -26,7 +26,7 @@
         .slideshow {
             position: relative;
 
-            #previous {
+            .btn-previous {
                 position: absolute;
                 top: 50%;
                 left: 0px;
@@ -35,6 +35,15 @@
                 background-color: white;
                 padding: 20px;
                 border-radius: 50%;
+
+                @include breakpoint("lg") {
+                    display: none;
+                }
+
+                .icon-previous:hover {
+                    filter: invert(58%) sepia(98%) saturate(1474%)
+                        hue-rotate(359deg) brightness(101%) contrast(104%);
+                }
             }
 
             .img-product {
@@ -43,11 +52,11 @@
 
                 &:hover {
                     border: 2px solid var(--color-pri-orange);
-                    opacity: 0.5;
+                    opacity: 0.7;
                 }
             }
 
-            #next {
+            .btn-next {
                 position: absolute;
                 top: 50%;
                 right: -50px;
@@ -56,6 +65,15 @@
                 background-color: white;
                 padding: var(--spacing-20);
                 border-radius: 50%;
+
+                @include breakpoint("lg") {
+                    display: none;
+                }
+
+                .icon-next:hover {
+                    filter: invert(58%) sepia(98%) saturate(1474%)
+                        hue-rotate(359deg) brightness(101%) contrast(104%);
+                }
             }
         }
 
@@ -169,7 +187,7 @@
                 }
 
                 :nth-child(2) {
-                    color: var(--Very-dark-blue);
+                    color: var(--Very-dark-blue) !important;
                     cursor: pointer;
                 }
             }

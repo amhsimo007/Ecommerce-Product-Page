@@ -102,8 +102,8 @@ header {
 
                 .cart-badge {
                     display: block;
-                    width: 25px;
-                    height: 25px;
+                    width: 35px;
+                    height: 35px;
                     color: var(--color-White);
                     font-size: var(--font-body-m);
                     background-color: var(--color-pri-orange);
@@ -236,7 +236,7 @@ header {
             flex-direction: column;
             gap: var(--spacing-12);
             width: 92%;
-            height: 300px;
+            height: auto;
             background-color: var(--color-White);
             padding: var(--spacing-5);
             position: absolute;
@@ -249,7 +249,7 @@ header {
 
             @include breakpoint("sm") {
                 width: 60%;
-                height: 350px;
+
                 padding: var(--spacing-16);
                 top: 35%;
                 left: 66%;
@@ -257,7 +257,6 @@ header {
 
             @include breakpoint("lg") {
                 width: 50%;
-                height: 460px;
                 gap: var(--spacing-25);
                 top: 40%;
                 left: 71%;
@@ -270,7 +269,6 @@ header {
 
             @include breakpoint("xxl") {
                 width: 40%;
-                height: 480px;
                 top: 28%;
                 left: 74%;
             }
@@ -292,6 +290,7 @@ header {
                 font: var(--font-body-g);
                 font-weight: 400;
                 text-align: center;
+                color: var(--Dark-grayish-blue);
 
                 @include breakpoint("lg") {
                     font: var(--font-heading-2);
@@ -364,106 +363,110 @@ header {
         }
 
         .gallery-pop-up {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            position: absolute;
-            width: 30%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            display: none;
 
-            .slideshow {
-                position: relative;
-
-                .btn-close {
-                    position: absolute;
-                    top: -3%;
-                    right: -6%;
-                    transform: translate(-50%, -50%);
-                    cursor: pointer;
-                    background-color: transparent;
-                    padding: 20px;
-
-                    .icon-close {
-                        width: 25px;
-                        filter: brightness(0) invert(1);
-
-                        &:hover {
-                            filter: invert(58%) sepia(98%) saturate(1474%)
-                                hue-rotate(359deg) brightness(101%)
-                                contrast(104%);
-                        }
-                    }
-                }
-
-                .btn-previous {
-                    position: absolute;
-                    top: 50%;
-                    left: 0px;
-                    transform: translate(-50%, -50%);
-                    cursor: pointer;
-                    background-color: white;
-                    padding: 20px;
-                    border-radius: 50%;
-
-                    .icon-previous {
-                        &:hover {
-                            filter: invert(58%) sepia(98%) saturate(1474%)
-                                hue-rotate(359deg) brightness(101%)
-                                contrast(104%);
-                        }
-                    }
-                }
-
-                .img-big {
-                    border-radius: 25px;
-                    cursor: pointer;
-                }
-
-                .btn-next {
-                    position: absolute;
-                    top: 50%;
-                    right: -50px;
-                    transform: translate(-50%, -50%);
-                    cursor: pointer;
-                    background-color: white;
-                    padding: 20px;
-                    border-radius: 50%;
-
-                    .icon-next {
-                        &:hover {
-                            filter: invert(58%) sepia(98%) saturate(1474%)
-                                hue-rotate(359deg) brightness(101%)
-                                contrast(104%);
-                        }
-                    }
-                }
-            }
-
-            .thumbnails-big {
+            @include breakpoint("lg") {
                 display: flex;
-                justify-content: space-between;
+                flex-direction: column;
+                justify-content: center;
                 align-items: center;
-                gap: 15px;
+                gap: 25px;
+                position: absolute;
+                width: 45%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
 
-                .thumb-big {
-                    width: 20%;
-                    border-radius: 25px;
-                    cursor: pointer;
-                    object-fit: cover;
-                    border: 3px solid transparent;
-                    transition: 0.3s;
+                .slideshow {
+                    position: relative;
 
-                    &:hover {
-                        opacity: 0.5;
-                        transform: scale(1.05);
+                    .btn-close {
+                        position: absolute;
+                        top: -3%;
+                        right: -6%;
+                        transform: translate(-50%, -50%);
+                        cursor: pointer;
+                        background-color: transparent;
+                        padding: 20px;
+
+                        .icon-close {
+                            width: 25px;
+                            filter: brightness(0) invert(1);
+
+                            &:hover {
+                                filter: invert(58%) sepia(98%) saturate(1474%)
+                                    hue-rotate(359deg) brightness(101%)
+                                    contrast(104%);
+                            }
+                        }
                     }
 
-                    &.active {
-                        border-color: var(--color-pri-orange);
+                    .btn-previous {
+                        position: absolute;
+                        top: 50%;
+                        left: 0px;
+                        transform: translate(-50%, -50%);
+                        cursor: pointer;
+                        background-color: white;
+                        padding: 20px;
+                        border-radius: 50%;
+
+                        .icon-previous {
+                            &:hover {
+                                filter: invert(58%) sepia(98%) saturate(1474%)
+                                    hue-rotate(359deg) brightness(101%)
+                                    contrast(104%);
+                            }
+                        }
+                    }
+
+                    .img-big {
+                        border-radius: 25px;
+                        cursor: pointer;
+                    }
+
+                    .btn-next {
+                        position: absolute;
+                        top: 50%;
+                        right: -50px;
+                        transform: translate(-50%, -50%);
+                        cursor: pointer;
+                        background-color: white;
+                        padding: 20px;
+                        border-radius: 50%;
+
+                        .icon-next {
+                            &:hover {
+                                filter: invert(58%) sepia(98%) saturate(1474%)
+                                    hue-rotate(359deg) brightness(101%)
+                                    contrast(104%);
+                            }
+                        }
+                    }
+                }
+
+                .thumbnails-big {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 15px;
+
+                    .thumb-big {
+                        width: 20%;
+                        border-radius: 25px;
+                        cursor: pointer;
+                        object-fit: cover;
+                        border: 3px solid transparent;
+                        transition: 0.3s;
+
+                        &:hover {
+                            opacity: 0.5;
+                            transform: scale(1.05);
+                        }
+
+                        &.active {
+                            border-color: var(--color-pri-orange);
+                        }
                     }
                 }
             }
